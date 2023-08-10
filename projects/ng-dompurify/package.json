@@ -10,9 +10,9 @@
         "DomSanitizer",
         "tinkoff"
     ],
-    "homepage": "https://github.com/TinkoffCreditSystems/ng-dompurify#README",
-    "bugs": "https://github.com/TinkoffCreditSystems/ng-dompurify/issues",
-    "repository": "https://github.com/TinkoffCreditSystems/ng-dompurify",
+    "homepage": "https://github.com/taiga-family/ng-dompurify#README",
+    "bugs": "https://github.com/taiga-family/ng-dompurify/issues",
+    "repository": "https://github.com/taiga-family/ng-dompurify",
     "license": "Apache-2.0",
     "dependencies": {
         "tslib": "^2.0.0"

@@ -1,9 +1,9 @@
 # NgDompurify
 
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@tinkoff/ng-dompurify)](https://bundlephobia.com/result?p=@tinkoff/ng-dompurify)
-[![Coverage Status](https://img.shields.io/coveralls/github/TinkoffCreditSystems/ng-dompurify?branch=master&style=flat-square)](https://coveralls.io/github/TinkoffCreditSystems/ng-dompurify?branch=master)
+[![Coverage Status](https://img.shields.io/coveralls/github/taiga-family/ng-dompurify?branch=master&style=flat-square)](https://coveralls.io/github/taiga-family/ng-dompurify?branch=master)
 [![npm version](https://img.shields.io/npm/v/@tinkoff/ng-dompurify.svg?style=flat-square)](https://npmjs.com/package/@tinkoff/ng-dompurify)
-[![code style: @tinkoff/linters](https://img.shields.io/badge/code%20style-%40tinkoff%2Flinters-blue?style=flat-square)](https://github.com/TinkoffCreditSystems/linters)
+[![code style: @tinkoff/linters](https://img.shields.io/badge/code%20style-%40tinkoff%2Flinters-blue?style=flat-square)](https://github.com/taiga-family/linters)
 
 > This library implements `DOMPurify` as Angular `Sanitizer` or `Pipe`. It delegates sanitizing to `DOMPurify` and
 > supports the same configuration. See [DOMPurify](https://github.com/cure53/DOMPurify).
@@ -171,8 +171,8 @@ export class AppModule {}
 
 ## Maintained
 
-**@tinkoff/ng-dompurify** is a part of [Taiga UI](https://github.com/Tinkoff/taiga-ui) libraries family which is backed and used by a
-large enterprise. This means you can rely on timely support and continuous development.
+**@tinkoff/ng-dompurify** is a part of [Taiga UI](https://github.com/Tinkoff/taiga-ui) libraries family which is backed
+and used by a large enterprise. This means you can rely on timely support and continuous development.
 
 ## License
 
@@ -184,4 +184,4 @@ Read more about this license [here](https://choosealicense.com/licenses/apache-2
 
 ## Demo
 
-You can see live demo here: https://stackblitz.com/github/TinkoffCreditSystems/ng-dompurify/tree/master/projects/demo
+You can see live demo here: https://stackblitz.com/github/taiga-family/ng-dompurify/tree/master/projects/demo
