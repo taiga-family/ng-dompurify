@@ -15,7 +15,7 @@
     "repository": "https://github.com/taiga-family/ng-dompurify",
     "license": "Apache-2.0",
     "dependencies": {
-        "tslib": "2.0.0"
+        "tslib": "2.6.2"
     },
     "peerDependencies": {
         "@angular/core": ">=12.0.0",
