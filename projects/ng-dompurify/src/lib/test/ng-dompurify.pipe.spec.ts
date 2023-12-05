@@ -15,20 +15,20 @@ describe('NgDompurifyPipe', () => {
             <div
                 *ngIf="html"
                 #element
-                [innerHTML]="content | dompurify: context:config"
+                [innerHTML]="content | dompurify: context : config"
             >
                 test
             </div>
             <div
                 *ngIf="style"
                 #element
-                [style.color]="content | dompurify: context:config"
+                [style.color]="content | dompurify: context : config"
             ></div>
             <img
                 *ngIf="url"
                 #element
                 alt=""
-                [src]="content | dompurify: context:config"
+                [src]="content | dompurify: context : config"
             />
         `,
     })
