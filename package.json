@@ -70,7 +70,7 @@
         "@ng-web-apis/universal": "3.0.7",
         "@nguniversal/builders": "12.1.3",
         "@nguniversal/express-engine": "12.1.3",
-        "@taiga-ui/prettier-config": "0.6.0",
+        "@taiga-ui/prettier-config": "0.7.0",
         "@tinkoff/eslint-config": "2.0.0",
         "@tinkoff/eslint-config-angular": "2.0.0",
         "@tinkoff/stylelint-config": "2.0.0",
