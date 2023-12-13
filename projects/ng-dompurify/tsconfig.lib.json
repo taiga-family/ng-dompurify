@@ -1,10 +1,9 @@
 {
     "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "outDir": "dist/out-tsc/lib",
-        "lib": ["es6", "esnext", "dom"]
+        "outDir": "dist/out-tsc/lib"
     },
-    "exclude": ["src/test.ts", "**/*.spec.ts"],
+    "exclude": ["**/*.spec.ts"],
     "angularCompilerOptions": {
         "compilationMode": "partial"
     }
