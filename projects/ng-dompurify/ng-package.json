@@ -1,7 +1,11 @@
 {
     "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+    "assets": [
+        "CHANGELOG.md",
+        "README.md"
+    ],
     "dest": "../../dist/ng-dompurify",
     "lib": {
-        "entryFile": "src/public-api.ts"
+        "entryFile": "lib/index.ts"
     }
 }

@@ -10,11 +10,11 @@ import {AppModule} from './app.module';
     imports: [
         AppModule,
         BrowserModule.withServerTransition({
-            appId: 'ng-universal-demystified',
+            appId: `ng-universal-demystified`,
         }),
         ServerModule,
     ],
-    bootstrap: [AppComponent],
     providers: UNIVERSAL_PROVIDERS,
+    bootstrap: [AppComponent],
 })
 export class AppServerModule {}

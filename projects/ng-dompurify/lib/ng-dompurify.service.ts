@@ -22,7 +22,7 @@ const createDOMPurify = dompurify;
  * @dynamic
  */
 @Injectable({
-    providedIn: 'root',
+    providedIn: `root`,
 })
 export class NgDompurifySanitizer implements Sanitizer {
     private readonly domPurify: DOMPurifyI;
@@ -36,7 +36,7 @@ export class NgDompurifySanitizer implements Sanitizer {
         @Inject(DOMPURIFY_HOOKS)
         hooks: readonly NgDompurifyHook[],
     ) {
-        this.domPurify = createDOMPurify(defaultView!);
+        this.domPurify = createDOMPurify(defaultView as Window);
 
         hooks.forEach(({name, hook}) => {
             this.domPurify.addHook(name, hook);
@@ -45,15 +45,15 @@ export class NgDompurifySanitizer implements Sanitizer {
 
     sanitize(
         context: SecurityContext,
-        value: {} | string | null,
+        value: Record<string, string> | string | null,
         config: NgDompurifyConfig = this.config,
     ): string {
         if (context === SecurityContext.SCRIPT) {
-            throw new Error('DOMPurify does not support SCRIPT context');
+            throw new Error(`DOMPurify does not support SCRIPT context`);
         }
 
         return context === SecurityContext.STYLE
             ? this.sanitizeStyle(String(value))
-            : this.domPurify.sanitize(String(value || ''), config);
+            : this.domPurify.sanitize(String(value || ``), config);
     }
 }
