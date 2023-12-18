@@ -9,7 +9,7 @@ import {NgDompurifyConfig} from './types/ng-dompurify-config';
  */
 @Pipe({
     standalone: true,
-    name: `dompurify`,
+    name: 'dompurify',
 })
 export class NgDompurifyPipe implements PipeTransform {
     constructor(

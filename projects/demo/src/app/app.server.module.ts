@@ -10,7 +10,7 @@ import {AppModule} from './app.module';
     imports: [
         AppModule,
         BrowserModule.withServerTransition({
-            appId: `ng-universal-demystified`,
+            appId: 'ng-universal-demystified',
         }),
         ServerModule,
     ],
