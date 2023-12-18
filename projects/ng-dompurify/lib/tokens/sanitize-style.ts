@@ -8,9 +8,9 @@ import {SanitizeStyle} from '../types/sanitize-style';
  * NOTE: Angular 10 removed CSS sanitation so by default this method does nothing
  */
 export const SANITIZE_STYLE = new InjectionToken<SanitizeStyle>(
-    `[SANITIZE_STYLE]: A function that sanitizes value for a CSS rule`,
+    '[SANITIZE_STYLE]: A function that sanitizes value for a CSS rule',
     {
         factory: () => value => value,
-        providedIn: `root`,
+        providedIn: 'root',
     },
 );

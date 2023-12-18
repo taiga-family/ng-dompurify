@@ -8,7 +8,7 @@ import {cleanHtml, dirtyHtml} from './test-samples/html';
 import {sanitizeStyle} from './test-samples/sanitize-style';
 import {cleanUrl, dirtyUrl} from './test-samples/url';
 
-describe(`NgDompurifyPipe`, () => {
+describe('NgDompurifyPipe', () => {
     @Component({
         template: `
             <div
@@ -32,10 +32,10 @@ describe(`NgDompurifyPipe`, () => {
         `,
     })
     class TestComponent {
-        @ViewChild(`element`)
+        @ViewChild('element')
         readonly element!: ElementRef<HTMLElement>;
 
-        content = ``;
+        content = '';
         context?: SecurityContext = SecurityContext.HTML;
         config? = {};
 
@@ -74,7 +74,7 @@ describe(`NgDompurifyPipe`, () => {
                 },
                 {
                     provide: APP_BASE_HREF,
-                    useValue: `/`,
+                    useValue: '/',
                 },
             ],
         });
@@ -88,14 +88,14 @@ describe(`NgDompurifyPipe`, () => {
         removeAllHooks();
     });
 
-    it(`sanitizes HTML`, () => {
+    it('sanitizes HTML', () => {
         testComponent.content = dirtyHtml;
         fixture.detectChanges();
 
         expect(testComponent.element.nativeElement.innerHTML).toBe(cleanHtml);
     });
 
-    it(`sanitizes HTML by default`, () => {
+    it('sanitizes HTML by default', () => {
         testComponent.content = dirtyHtml;
         testComponent.context = undefined;
         testComponent.config = undefined;
@@ -104,41 +104,41 @@ describe(`NgDompurifyPipe`, () => {
         expect(testComponent.element.nativeElement.innerHTML).toBe(cleanHtml);
     });
 
-    it(`sanitizes HTML with config`, () => {
+    it('sanitizes HTML with config', () => {
         testComponent.content = dirtyHtml;
-        testComponent.config = {FORBID_TAGS: [`br`]};
+        testComponent.config = {FORBID_TAGS: ['br']};
         fixture.detectChanges();
 
         expect(testComponent.element.nativeElement.innerHTML).toBe(
-            cleanHtml.replace(`<br>`, ``),
+            cleanHtml.replace('<br>', ''),
         );
     });
 
-    it(`sanitizes URL`, () => {
+    it('sanitizes URL', () => {
         testComponent.content = dirtyUrl;
         testComponent.context = SecurityContext.URL;
         fixture.detectChanges();
 
-        expect(testComponent.element.nativeElement.getAttribute(`src`)).toBe(cleanUrl);
+        expect(testComponent.element.nativeElement.getAttribute('src')).toBe(cleanUrl);
     });
 
-    it(`sanitizes RESOURCE URL`, () => {
+    it('sanitizes RESOURCE URL', () => {
         testComponent.content = dirtyUrl;
         testComponent.context = SecurityContext.RESOURCE_URL;
         fixture.detectChanges();
 
-        expect(testComponent.element.nativeElement.getAttribute(`src`)).toBe(cleanUrl);
+        expect(testComponent.element.nativeElement.getAttribute('src')).toBe(cleanUrl);
     });
 
-    it(`sanitizes STYLE`, () => {
-        testComponent.content = `some style`;
+    it('sanitizes STYLE', () => {
+        testComponent.content = 'some style';
         testComponent.context = SecurityContext.STYLE;
         fixture.detectChanges();
 
-        expect(testComponent.element.nativeElement.getAttribute(`style`)).toBeNull();
+        expect(testComponent.element.nativeElement.getAttribute('style')).toBeNull();
     });
 
-    it(`throws error by using SCRIPT security context`, done => {
+    it('throws error by using SCRIPT security context', done => {
         try {
             testComponent.context = SecurityContext.SCRIPT;
             fixture.detectChanges();
@@ -149,11 +149,11 @@ describe(`NgDompurifyPipe`, () => {
         }
     });
 
-    it(`clears content when used with NONE context`, () => {
+    it('clears content when used with NONE context', () => {
         testComponent.content = dirtyHtml;
         testComponent.context = SecurityContext.NONE;
         fixture.detectChanges();
 
-        expect(testComponent.element.nativeElement.innerHTML).toBe(``);
+        expect(testComponent.element.nativeElement.innerHTML).toBe('');
     });
 });
