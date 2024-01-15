@@ -119,7 +119,7 @@
         "jest-preset-angular": "12.2.2",
         "lint-staged": "15.2.0",
         "ng-packagr": "15.2.2",
-        "prettier": "3.1.1",
+        "prettier": "3.2.2",
         "rxjs": "7.8.1",
         "standard-version": "9.5.0",
         "ts-jest": "29.1.1",
