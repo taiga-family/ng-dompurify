@@ -101,7 +101,7 @@
         "@nguniversal/express-engine": "15.2.1",
         "@taiga-ui/browserslist-config": "0.4.0",
         "@taiga-ui/commitlint-config": "0.5.3",
-        "@taiga-ui/eslint-plugin-experience": "0.49.0",
+        "@taiga-ui/eslint-plugin-experience": "0.50.0",
         "@taiga-ui/prettier-config": "0.7.1",
         "@taiga-ui/stylelint-config": "0.13.0",
         "@taiga-ui/tsconfig": "0.14.0",
