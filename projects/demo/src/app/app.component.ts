@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Inject, SecurityContext} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, SecurityContext} from '@angular/core';
 import {DomSanitizer, SafeValue} from '@angular/platform-browser';
 
 const dirtyHtml =
@@ -13,10 +13,10 @@ const svg = `<svg width="56" height="56">
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
+    private readonly sanitizer = inject(DomSanitizer);
+
     value = dirtyHtml;
     domValue = svg;
-
-    constructor(@Inject(DomSanitizer) private readonly sanitizer: DomSanitizer) {}
 
     unwrap(value: SafeValue | null): string {
         return this.sanitizer.sanitize(SecurityContext.HTML, value) || '';

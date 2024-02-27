@@ -1,4 +1,4 @@
-import {Inject, Pipe, PipeTransform, SecurityContext} from '@angular/core';
+import {inject, Pipe, PipeTransform, SecurityContext} from '@angular/core';
 import {DomSanitizer, SafeValue} from '@angular/platform-browser';
 
 import {NgDompurifySanitizer} from './ng-dompurify.service';
@@ -12,10 +12,8 @@ import {NgDompurifyConfig} from './types/ng-dompurify-config';
     name: 'dompurify',
 })
 export class NgDompurifyPipe implements PipeTransform {
-    constructor(
-        @Inject(NgDompurifySanitizer) private readonly sanitizer: NgDompurifySanitizer,
-        @Inject(DomSanitizer) private readonly domSanitizer: DomSanitizer,
-    ) {}
+    private readonly sanitizer = inject(NgDompurifySanitizer);
+    private readonly domSanitizer = inject(DomSanitizer);
 
     transform(
         value: Record<string, string> | string | null,

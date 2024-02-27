@@ -32,8 +32,8 @@ const config: Config = {
     coverageReporters: ['html', 'lcov', 'json', 'text', 'lcov'],
     moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
         prefix: `<rootDir>/${compilerOptions.baseUrl}/`
-            .replace(/\.\//g, '/')
-            .replace(/\/\/+/g, '/'),
+            .replaceAll('./', '/')
+            .replaceAll(/\/\/+/g, '/'),
     }),
     verbose: true,
 };
