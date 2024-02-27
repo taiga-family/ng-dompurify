@@ -1,13 +1,11 @@
 import {DOCUMENT} from '@angular/common';
-import {Inject, Injectable, Sanitizer, SecurityContext} from '@angular/core';
+import {inject, Injectable, Sanitizer, SecurityContext} from '@angular/core';
 import dompurify, {DOMPurifyI} from 'dompurify';
 
 import {DOMPURIFY_CONFIG} from './tokens/dompurify-config';
 import {DOMPURIFY_HOOKS} from './tokens/dompurify-hooks';
 import {SANITIZE_STYLE} from './tokens/sanitize-style';
 import {NgDompurifyConfig} from './types/ng-dompurify-config';
-import {NgDompurifyHook} from './types/ng-dompurify-hook';
-import {SanitizeStyle} from './types/sanitize-style';
 
 const createDOMPurify = dompurify;
 
@@ -25,20 +23,14 @@ const createDOMPurify = dompurify;
     providedIn: 'root',
 })
 export class NgDompurifySanitizer implements Sanitizer {
+    private readonly config = inject(DOMPURIFY_CONFIG);
+    private readonly sanitizeStyle = inject(SANITIZE_STYLE);
     private readonly domPurify: DOMPurifyI;
 
-    constructor(
-        @Inject(DOMPURIFY_CONFIG)
-        private readonly config: NgDompurifyConfig,
-        @Inject(SANITIZE_STYLE)
-        private readonly sanitizeStyle: SanitizeStyle,
-        @Inject(DOCUMENT) {defaultView}: Document,
-        @Inject(DOMPURIFY_HOOKS)
-        hooks: readonly NgDompurifyHook[],
-    ) {
-        this.domPurify = createDOMPurify(defaultView as Window);
+    constructor() {
+        this.domPurify = createDOMPurify(inject(DOCUMENT).defaultView as Window);
 
-        hooks.forEach(({name, hook}) => {
+        inject(DOMPURIFY_HOOKS).forEach(({name, hook}) => {
             this.domPurify.addHook(name, hook);
         });
     }
