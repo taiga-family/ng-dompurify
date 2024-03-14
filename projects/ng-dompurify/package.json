@@ -21,7 +21,7 @@
         "@angular/core": ">=16.0.0",
         "@angular/platform-browser": ">=16.0.0",
         "@types/dompurify": ">=2.3.0",
-        "dompurify": ">=2.3.0"
+        "dompurify": ">=3.0.9"
     },
     "authors": [
         "Roman Sedov <79601794011@ya.ru>",
