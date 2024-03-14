@@ -20,7 +20,7 @@
     "peerDependencies": {
         "@angular/core": ">=16.0.0",
         "@angular/platform-browser": ">=16.0.0",
-        "@types/dompurify": ">=2.3.0",
+        "@types/dompurify": ">=3.0.5",
         "dompurify": ">=3.0.9"
     },
     "authors": [
