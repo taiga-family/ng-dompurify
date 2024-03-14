@@ -1,9 +1,9 @@
 import {APP_BASE_HREF} from '@angular/common';
 import {SecurityContext} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
+import type {NgDompurifyHook} from '@tinkoff/ng-dompurify';
 import {
     DOMPURIFY_HOOKS,
-    NgDompurifyHook,
     NgDompurifySanitizer,
     SANITIZE_STYLE,
 } from '@tinkoff/ng-dompurify';

@@ -1,6 +1,8 @@
 import {APP_BASE_HREF, CommonModule} from '@angular/common';
-import {Component, ElementRef, SecurityContext, ViewChild} from '@angular/core';
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import type {ElementRef} from '@angular/core';
+import {Component, SecurityContext, ViewChild} from '@angular/core';
+import type {ComponentFixture} from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 import {NgDompurifyPipe, SANITIZE_STYLE} from '@tinkoff/ng-dompurify';
 import {removeAllHooks} from 'dompurify';
 
@@ -10,6 +12,8 @@ import {cleanUrl, dirtyUrl} from './test-samples/url';
 
 describe('NgDompurifyPipe', () => {
     @Component({
+        standalone: true,
+        imports: [CommonModule, NgDompurifyPipe],
         template: `
             <div
                 *ngIf="html"
@@ -33,13 +37,13 @@ describe('NgDompurifyPipe', () => {
     })
     class TestComponent {
         @ViewChild('element')
-        readonly element!: ElementRef<HTMLElement>;
+        protected readonly element!: ElementRef<HTMLElement>;
 
-        content = '';
-        context?: SecurityContext = SecurityContext.HTML;
-        config? = {};
+        protected content = '';
+        protected context?: SecurityContext = SecurityContext.HTML;
+        protected config? = {};
 
-        get html(): boolean {
+        protected get html(): boolean {
             return (
                 this.context === undefined ||
                 this.context === SecurityContext.HTML ||
@@ -48,11 +52,11 @@ describe('NgDompurifyPipe', () => {
             );
         }
 
-        get style(): boolean {
+        protected get style(): boolean {
             return this.context === SecurityContext.STYLE;
         }
 
-        get url(): boolean {
+        protected get url(): boolean {
             return (
                 this.context === SecurityContext.URL ||
                 this.context === SecurityContext.RESOURCE_URL
@@ -65,8 +69,7 @@ describe('NgDompurifyPipe', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [CommonModule, NgDompurifyPipe],
-            declarations: [TestComponent],
+            imports: [TestComponent],
             providers: [
                 {
                     provide: SANITIZE_STYLE,

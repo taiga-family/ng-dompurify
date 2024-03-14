@@ -40,10 +40,12 @@
                         "buildOptimizer": false,
                         "sourceMap": true,
                         "optimization": false,
+                        "aot": true,
                         "namedChunks": true
                     },
                     "configurations": {
                         "production": {
+                            "aot": true,
                             "optimization": true,
                             "outputHashing": "all",
                             "sourceMap": false,
@@ -70,7 +72,7 @@
                                     "maximumWarning": "6kb"
                                 }
                             ],
-                            "tsConfig": "tsconfig.json"
+                            "tsConfig": "projects/demo/tsconfig.app.json"
                         }
                     },
                     "defaultConfiguration": ""
@@ -83,42 +85,6 @@
                     "configurations": {
                         "production": {
                             "browserTarget": "demo:build:production"
-                        }
-                    }
-                },
-                "server": {
-                    "builder": "@angular-devkit/build-angular:server",
-                    "options": {
-                        "outputPath": "dist/demo/server",
-                        "main": "projects/demo/src/server.ts",
-                        "tsConfig": "projects/demo/tsconfig.server.json",
-                        "sourceMap": true,
-                        "optimization": false
-                    },
-                    "configurations": {
-                        "production": {
-                            "outputHashing": "media",
-                            "sourceMap": false,
-                            "optimization": true
-                        },
-                        "development": {
-                            "outputHashing": "media",
-                            "sourceMap": true,
-                            "optimization": false
-                        }
-                    },
-                    "defaultConfiguration": "development"
-                },
-                "serve-ssr": {
-                    "builder": "@nguniversal/builders:ssr-dev-server",
-                    "options": {
-                        "browserTarget": "demo:build",
-                        "serverTarget": "demo:server"
-                    },
-                    "configurations": {
-                        "production": {
-                            "browserTarget": "demo:build:production",
-                            "serverTarget": "demo:server:production"
                         }
                     }
                 }

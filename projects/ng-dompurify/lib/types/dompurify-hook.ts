@@ -1,4 +1,4 @@
-import {Config, HookEvent} from 'dompurify';
+import type {Config, HookEvent} from 'dompurify';
 
 /**
  * DOMPurify hook function {@link addHook}

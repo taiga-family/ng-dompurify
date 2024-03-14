@@ -1,6 +1,6 @@
 import {InjectionToken} from '@angular/core';
 
-import {NgDompurifyConfig} from '../types/ng-dompurify-config';
+import type {NgDompurifyConfig} from '../types/ng-dompurify-config';
 
 /**
  * Token for {@link NgDompurifyConfig}
