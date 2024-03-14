@@ -1,19 +1,6 @@
-import './polyfills';
+import {bootstrapApplication} from '@angular/platform-browser';
 
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {AppComponent} from './app/app.component';
+import {appConfig} from './app/app.config';
 
-import {AppModule} from './app/app.module';
-
-platformBrowserDynamic()
-    .bootstrapModule(AppModule)
-    .then(ref => {
-        // Ensure Angular destroys itself on hot reloads for Stackblitz
-        const windowRef: any = window;
-
-        if (windowRef.ngRef) {
-            windowRef.ngRef.destroy();
-        }
-
-        windowRef.ngRef = ref;
-    })
-    .catch(err => console.error(err));
+bootstrapApplication(AppComponent, appConfig).catch(err => console.error(err));

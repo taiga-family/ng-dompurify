@@ -1,5 +1,8 @@
 import {ChangeDetectionStrategy, Component, inject, SecurityContext} from '@angular/core';
-import {DomSanitizer, SafeValue} from '@angular/platform-browser';
+import {FormsModule} from '@angular/forms';
+import type {SafeValue} from '@angular/platform-browser';
+import {DomSanitizer} from '@angular/platform-browser';
+import {NgDompurifyPipe} from '@tinkoff/ng-dompurify';
 
 const dirtyHtml =
     '<p style="color: red;"> HELLO <iframe//src=JavaScript:alert&lpar;1)></ifrAMe><br>goodbye</p>';
@@ -8,17 +11,19 @@ const svg = `<svg width="56" height="56">
 </svg>`;
 
 @Component({
+    standalone: true,
     selector: 'my-app',
+    imports: [FormsModule, NgDompurifyPipe],
     templateUrl: './app.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
     private readonly sanitizer = inject(DomSanitizer);
 
-    value = dirtyHtml;
-    domValue = svg;
+    protected value = dirtyHtml;
+    protected domValue = svg;
 
-    unwrap(value: SafeValue | null): string {
+    protected unwrap(value: SafeValue | null): string {
         return this.sanitizer.sanitize(SecurityContext.HTML, value) || '';
     }
 }

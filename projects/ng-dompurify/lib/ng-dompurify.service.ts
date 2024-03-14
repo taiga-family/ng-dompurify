@@ -1,11 +1,13 @@
 import {DOCUMENT} from '@angular/common';
-import {inject, Injectable, Sanitizer, SecurityContext} from '@angular/core';
-import dompurify, {DOMPurifyI} from 'dompurify';
+import type {Sanitizer} from '@angular/core';
+import {inject, Injectable, SecurityContext} from '@angular/core';
+import type {DOMPurifyI} from 'dompurify';
+import dompurify from 'dompurify';
 
 import {DOMPURIFY_CONFIG} from './tokens/dompurify-config';
 import {DOMPURIFY_HOOKS} from './tokens/dompurify-hooks';
 import {SANITIZE_STYLE} from './tokens/sanitize-style';
-import {NgDompurifyConfig} from './types/ng-dompurify-config';
+import type {NgDompurifyConfig} from './types/ng-dompurify-config';
 
 const createDOMPurify = dompurify;
 
@@ -35,7 +37,7 @@ export class NgDompurifySanitizer implements Sanitizer {
         });
     }
 
-    sanitize(
+    public sanitize(
         context: SecurityContext,
         value: Record<string, string> | string | null,
         config: NgDompurifyConfig = this.config,

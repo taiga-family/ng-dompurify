@@ -1,6 +1,6 @@
-import {HookName} from 'dompurify';
+import type {HookName} from 'dompurify';
 
-import {DompurifyHook} from './dompurify-hook';
+import type {DompurifyHook} from './dompurify-hook';
 
 /**
  * A DOMPurify supported hook see {@link addHook}

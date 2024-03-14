@@ -1,6 +1,6 @@
 import {InjectionToken} from '@angular/core';
 
-import {SanitizeStyle} from '../types/sanitize-style';
+import type {SanitizeStyle} from '../types/sanitize-style';
 
 /**
  * A function that takes style rule value as input and returns a sanitized string

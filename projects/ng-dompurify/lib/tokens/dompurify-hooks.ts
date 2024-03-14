@@ -1,6 +1,6 @@
 import {InjectionToken} from '@angular/core';
 
-import {NgDompurifyHook} from '../types/ng-dompurify-hook';
+import type {NgDompurifyHook} from '../types/ng-dompurify-hook';
 
 /**
  * Token for adding hooks to DOMPurify, see {@link addHook}

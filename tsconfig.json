@@ -3,9 +3,6 @@
     "compilerOptions": {
         "baseUrl": "./",
         "outDir": "./dist",
-        "module": "es2020",
-        "target": "es2017",
-        "lib": ["esnext", "dom"],
         "typeRoots": ["node_modules/@types"],
         "types": ["jest", "node"],
         "paths": {

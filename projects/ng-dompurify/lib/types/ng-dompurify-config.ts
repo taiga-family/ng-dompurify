@@ -1,4 +1,4 @@
-import {Config} from 'dompurify';
+import type {Config} from 'dompurify';
 
 /**
  * Config that allows to return only string result

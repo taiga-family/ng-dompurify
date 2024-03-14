@@ -1,12 +1,7 @@
 {
     "extends": "../../tsconfig.json",
-    "compileOnSave": false,
-    "compilerOptions": {
-        "outDir": "./dist/out-tsc",
-        "moduleResolution": "node"
-    },
     "files": ["src/main.ts", "src/polyfills.ts"],
-    "include": ["**/*.d.ts"],
+    "exclude": ["**/*.spec.ts"],
     "angularCompilerOptions": {
         "compilationMode": "full"
     }
