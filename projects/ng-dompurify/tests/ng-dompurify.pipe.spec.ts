@@ -3,6 +3,7 @@ import type {ElementRef} from '@angular/core';
 import {Component, SecurityContext, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
+import {afterEach, beforeEach, describe, expect, it} from '@jest/globals';
 import {NgDompurifyPipe, SANITIZE_STYLE} from '@tinkoff/ng-dompurify';
 import {removeAllHooks} from 'dompurify';
 

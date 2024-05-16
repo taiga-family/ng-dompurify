@@ -1,6 +1,7 @@
 import {APP_BASE_HREF} from '@angular/common';
 import {SecurityContext} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
+import {afterEach, beforeEach, describe, expect, it} from '@jest/globals';
 import type {NgDompurifyHook} from '@tinkoff/ng-dompurify';
 import {
     DOMPURIFY_HOOKS,
