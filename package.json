@@ -119,7 +119,7 @@
         "ng-packagr": "16.2.3",
         "rxjs": "7.8.1",
         "standard-version": "9.5.0",
-        "ts-jest": "29.1.2",
+        "ts-jest": "29.1.3",
         "ts-node": "10.9.2",
         "tslib": "2.6.2",
         "typescript": "5.0.4",
