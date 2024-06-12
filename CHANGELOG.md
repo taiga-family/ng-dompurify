@@ -1,5 +1,7 @@
 
 
+# [4.1.0](https://github.com/taiga-family/ng-dompurify/compare/v4.0.1...v4.1.0) (2024-06-12)
+
 ## 4.0.1 (2024-06-12)
 
 
