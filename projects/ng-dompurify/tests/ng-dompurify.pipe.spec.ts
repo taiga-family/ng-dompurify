@@ -4,7 +4,7 @@ import {Component, SecurityContext, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
 import {afterEach, beforeEach, describe, expect, it} from '@jest/globals';
-import {NgDompurifyPipe, SANITIZE_STYLE} from '@tinkoff/ng-dompurify';
+import {NgDompurifyPipe, SANITIZE_STYLE} from '@taiga-ui/dompurify';
 import {removeAllHooks} from 'dompurify';
 
 import {cleanHtml, dirtyHtml} from './test-samples/html';
@@ -38,11 +38,11 @@ describe('NgDompurifyPipe', () => {
     })
     class TestComponent {
         @ViewChild('element')
-        protected readonly element!: ElementRef<HTMLElement>;
+        public readonly element!: ElementRef<HTMLElement>;
 
-        protected content = '';
-        protected context?: SecurityContext = SecurityContext.HTML;
-        protected config? = {};
+        public content = '';
+        public context?: SecurityContext = SecurityContext.HTML;
+        public config? = {};
 
         protected get html(): boolean {
             return (

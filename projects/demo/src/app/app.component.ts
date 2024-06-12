@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component, inject, SecurityContext} from '@angu
 import {FormsModule} from '@angular/forms';
 import type {SafeValue} from '@angular/platform-browser';
 import {DomSanitizer} from '@angular/platform-browser';
-import {NgDompurifyPipe} from '@tinkoff/ng-dompurify';
+import {NgDompurifyPipe} from '@taiga-ui/dompurify';
 
 const dirtyHtml =
     '<p style="color: red;"> HELLO <iframe//src=JavaScript:alert&lpar;1)></ifrAMe><br>goodbye</p>';

@@ -1,7 +1,7 @@
 # NgDompurify
 
-[![npm bundle size](https://img.shields.io/bundlephobia/minzip/@tinkoff/ng-dompurify)](https://bundlephobia.com/result?p=@tinkoff/ng-dompurify)
-[![npm version](https://img.shields.io/npm/v/@tinkoff/ng-dompurify.svg?style=flat-square)](https://npmjs.com/package/@tinkoff/ng-dompurify)
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/@taiga-ui/dompurify)](https://bundlephobia.com/result?p=@taiga-ui/dompurify)
+[![npm version](https://img.shields.io/npm/v/@taiga-ui/dompurify.svg?style=flat-square)](https://npmjs.com/package/@taiga-ui/dompurify)
 [![code style: @tinkoff/linters](https://img.shields.io/badge/code%20style-%40tinkoff%2Flinters-blue?style=flat-square)](https://github.com/taiga-family/linters)
 
 > This library implements `DOMPurify` as Angular `Sanitizer` or `Pipe`. It delegates sanitizing to `DOMPurify` and
@@ -13,7 +13,7 @@ Read more about Sanitization in Angular and how ng-dompurify works in
 ## Install
 
 ```
-npm install @tinkoff/ng-dompurify
+npm install @taiga-ui/dompurify
 ```
 
 If you do not have `dompurify` in your package, install also:
@@ -28,7 +28,7 @@ npm install --save-dev @types/dompurify
 Either use pipe to sanitize your content when binding to `[innerHTML]` or use `NgDompurifySanitizer` service manually.
 
 ```typescript
-import {NgDompurifyModule} from '@tinkoff/ng-dompurify';
+import {NgDompurifyModule} from '@taiga-ui/dompurify';
 
 @NgModule({
   imports: [NgDompurifyModule],
@@ -46,7 +46,7 @@ As a service:
 
 ```typescript
 import {SecurityContext} from '@angular/core';
-import {NgDompurifySanitizer} from '@tinkoff/ng-dompurify';
+import {NgDompurifySanitizer} from '@taiga-ui/dompurify';
 
 @Component({})
 export class MyComponent {
@@ -62,7 +62,7 @@ You can also substitute Angular `Sanitizer` with `DOMPurify` so it is automatica
 
 ```typescript
 import {NgModule, Sanitizer} from '@angular/core';
-import {NgDompurifySanitizer} from '@tinkoff/ng-dompurify';
+import {NgDompurifySanitizer} from '@taiga-ui/dompurify';
 // ...
 
 @NgModule({
@@ -85,7 +85,7 @@ Config for `NgDompurifySanitizer` or `NgDompurifyDomSanitizer` can be provided u
 
 ```typescript
 import {NgModule, Sanitizer} from '@angular/core';
-import {NgDompurifySanitizer, DOMPURIFY_CONFIG} from '@tinkoff/ng-dompurify';
+import {NgDompurifySanitizer, DOMPURIFY_CONFIG} from '@taiga-ui/dompurify';
 // ...
 
 @NgModule({
@@ -113,7 +113,7 @@ to:
 
 ```typescript
 import {NgModule, Sanitizer} from '@angular/core';
-import {NgDompurifySanitizer, SANITIZE_STYLE} from '@tinkoff/ng-dompurify';
+import {NgDompurifySanitizer, SANITIZE_STYLE} from '@taiga-ui/dompurify';
 
 @NgModule({
   // ...
@@ -138,7 +138,7 @@ DOMPurify supports various hooks. You can provide them using `DOMPURIFY_HOOKS` t
 
 ```typescript
 import {NgModule, Sanitizer} from '@angular/core';
-import {NgDompurifySanitizer, DOMPURIFY_HOOKS, SANITIZE_STYLE} from '@tinkoff/ng-dompurify';
+import {NgDompurifySanitizer, DOMPURIFY_HOOKS, SANITIZE_STYLE} from '@taiga-ui/dompurify';
 
 @NgModule({
   // ...
@@ -170,14 +170,14 @@ export class AppModule {}
 
 ## Maintained
 
-**@tinkoff/ng-dompurify** is a part of [Taiga UI](https://github.com/taiga-family/taiga-ui) libraries family which is
+**@taiga-ui/dompurify** is a part of [Taiga UI](https://github.com/taiga-family/taiga-ui) libraries family which is
 backed and used by a large enterprise. This means you can rely on timely support and continuous development.
 
 ## License
 
 🆓 Feel free to use our library in your commercial and private applications
 
-All **@tinkoff/ng-dompurify** packages are covered by [Apache 2.0](/LICENSE)
+All **@taiga-ui/dompurify** packages are covered by [Apache 2.0](/LICENSE)
 
 Read more about this license [here](https://choosealicense.com/licenses/apache-2.0/)
 

@@ -1,5 +1,5 @@
 {
-    "name": "@tinkoff/ng-dompurify",
+    "name": "@taiga-ui/dompurify",
     "version": "4.0.0",
     "description": "Inclusive Angular API for DOMPurify",
     "keywords": [

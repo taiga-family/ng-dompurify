@@ -6,7 +6,7 @@
         "typeRoots": ["node_modules/@types"],
         "types": ["jest", "node"],
         "paths": {
-            "@tinkoff/ng-dompurify": ["./projects/ng-dompurify/lib"]
+            "@taiga-ui/dompurify": ["./projects/ng-dompurify/lib"]
         }
     }
 }
