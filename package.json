@@ -31,7 +31,7 @@
         "start:ssr": "nx run demo:serve-ssr",
         "build:library": "nx build ng-dompurify",
         "stylelint": "stylelint '**/*.{less,css}'",
-        "prettier": "prettier !package-lock.json . --ignore-path .gitignore",
+        "prettier": "prettier !package-lock.json !CHANGELOG.md . --ignore-path .gitignore",
         "build:demo": "nx build demo -c production",
         "postbuild": "node scripts/postbuild.js",
         "test": "jest",
