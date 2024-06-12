@@ -14,14 +14,12 @@
     "bugs": "https://github.com/taiga-family/ng-dompurify/issues",
     "repository": "https://github.com/taiga-family/ng-dompurify",
     "license": "Apache-2.0",
-    "dependencies": {
-        "tslib": "2.6.3"
-    },
     "peerDependencies": {
         "@angular/core": ">=16.0.0",
         "@angular/platform-browser": ">=16.0.0",
-        "@types/dompurify": ">=3.0.5",
-        "dompurify": ">=3.1.5"
+        "@types/dompurify": "^3.0.5",
+        "dompurify": "^3.1.5",
+        "tslib": "^2.6.3"
     },
     "authors": [
         "Roman Sedov <79601794011@ya.ru>",

@@ -14,8 +14,8 @@ jobs:
 
       - id: info
         run: |
-          echo "version=v$(node -p "require('./projects/ng-event-plugins/package.json').version")" >> $GITHUB_OUTPUT
-          echo "name=$(node -p "require('./projects/ng-event-plugins/package.json').name")" >> $GITHUB_OUTPUT
+          echo "version=v$(node -p "require('./projects/ng-dompurify/package.json').version")" >> $GITHUB_OUTPUT
+          echo "name=$(node -p "require('./projects/ng-dompurify/package.json').name")" >> $GITHUB_OUTPUT
 
       - name: Announce to Telegram
         uses: taiga-family/ci/actions/messenger/telegram/announce@v1.60.1
