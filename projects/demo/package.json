@@ -1,11 +1,5 @@
 {
-    "name": "@tinkoff/ng-dompurify-demo",
-    "version": "1.0.0",
-    "private": true,
-    "scripts": {
-        "ng": "ng",
-        "start": "ng serve",
-        "build": "ng build",
-        "lint": "ng lint"
-    }
+    "name": "demo",
+    "version": "4.0.0",
+    "private": true
 }
