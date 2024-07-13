@@ -142,7 +142,7 @@ describe('NgDompurifyPipe', () => {
         expect(testComponent.element.nativeElement.getAttribute('style')).toBeNull();
     });
 
-    it('throws error by using SCRIPT security context', done => {
+    it('throws error by using SCRIPT security context', (done) => {
         try {
             testComponent.context = SecurityContext.SCRIPT;
             fixture.detectChanges();
