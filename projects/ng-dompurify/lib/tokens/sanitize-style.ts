@@ -10,7 +10,7 @@ import type {SanitizeStyle} from '../types/sanitize-style';
 export const SANITIZE_STYLE = new InjectionToken<SanitizeStyle>(
     '[SANITIZE_STYLE]: A function that sanitizes value for a CSS rule',
     {
-        factory: () => value => value,
+        factory: () => (value) => value,
         providedIn: 'root',
     },
 );
