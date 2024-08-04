@@ -115,7 +115,7 @@
         "@types/express": "4.17.21",
         "@types/jest": "29.5.12",
         "@types/node": "22.1.0",
-        "core-js": "3.37.1",
+        "core-js": "3.38.0",
         "express": "4.19.2",
         "glob": "11.0.0",
         "husky": "9.1.4",
