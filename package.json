@@ -118,7 +118,7 @@
         "core-js": "3.38.1",
         "express": "4.19.2",
         "glob": "11.0.0",
-        "husky": "9.1.4",
+        "husky": "9.1.5",
         "jest": "29.7.0",
         "jest-preset-angular": "14.2.2",
         "lint-staged": "15.2.9",
