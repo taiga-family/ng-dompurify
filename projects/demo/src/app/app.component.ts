@@ -24,6 +24,6 @@ export class AppComponent {
     protected domValue = svg;
 
     protected unwrap(value: SafeValue | null): string {
-        return this.sanitizer.sanitize(SecurityContext.HTML, value) || '';
+        return this.sanitizer.sanitize(SecurityContext.HTML, value) ?? '';
     }
 }

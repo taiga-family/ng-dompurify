@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-angular-bypass-sanitization */
 import type {PipeTransform} from '@angular/core';
 import {inject, Pipe, SecurityContext} from '@angular/core';
 import type {SafeValue} from '@angular/platform-browser';
