@@ -149,6 +149,7 @@ describe('NgDompurifyPipe', () => {
         } catch (error) {
             // eslint-disable-next-line jest/no-conditional-expect
             expect(error).toBeTruthy();
+
             done();
         }
     });
