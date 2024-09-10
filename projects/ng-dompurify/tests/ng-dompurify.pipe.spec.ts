@@ -1,6 +1,11 @@
 import {APP_BASE_HREF, CommonModule} from '@angular/common';
-import type {ElementRef} from '@angular/core';
-import {Component, SecurityContext, ViewChild} from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    type ElementRef,
+    SecurityContext,
+    ViewChild,
+} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
 import {afterEach, beforeEach, describe, expect, it} from '@jest/globals';
@@ -35,6 +40,8 @@ describe('NgDompurifyPipe', () => {
                 [src]="content | dompurify: context : config"
             />
         `,
+        // eslint-disable-next-line @angular-eslint/prefer-on-push-component-change-detection
+        changeDetection: ChangeDetectionStrategy.Default,
     })
     class TestComponent {
         @ViewChild('element')
