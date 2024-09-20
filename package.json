@@ -7,8 +7,7 @@
         "angular",
         "ng",
         "dompurify",
-        "DomSanitizer",
-        "tinkoff"
+        "DomSanitizer"
     ],
     "homepage": "https://github.com/taiga-family/ng-dompurify#README",
     "bugs": "https://github.com/taiga-family/ng-dompurify/issues",
@@ -106,12 +105,15 @@
         "@nx/workspace": "19.8.0",
         "@release-it-plugins/workspaces": "4.2.0",
         "@release-it/conventional-changelog": "8.0.2",
-        "@taiga-ui/browserslist-config": "0.203.1",
-        "@taiga-ui/commitlint-config": "0.203.1",
-        "@taiga-ui/eslint-plugin-experience": "0.203.1",
-        "@taiga-ui/prettier-config": "0.203.1",
-        "@taiga-ui/stylelint-config": "0.203.1",
-        "@taiga-ui/tsconfig": "0.203.1",
+        "@taiga-ui/auto-changelog-config": "0.203.0",
+        "@taiga-ui/browserslist-config": "0.203.0",
+        "@taiga-ui/commitlint-config": "0.203.0",
+        "@taiga-ui/eslint-plugin-experience": "0.203.0",
+        "@taiga-ui/prettier-config": "0.203.0",
+        "@taiga-ui/release-it-config": "0.203.0",
+        "@taiga-ui/stylelint-config": "0.203.0",
+        "@taiga-ui/syncer": "0.203.0",
+        "@taiga-ui/tsconfig": "0.203.0",
         "@types/express": "4.17.21",
         "@types/jest": "29.5.13",
         "@types/node": "22.5.5",
@@ -128,5 +130,16 @@
         "ts-jest": "29.2.5",
         "ts-node": "10.9.2",
         "typescript": "5.0.4"
+    },
+    "syncer": {
+        "includePaths": [
+            "./projects",
+            "./package-lock.json"
+        ],
+        "matchPackageNames": [
+            "@taiga-ui/dompurify",
+            "ng-dompurify"
+        ],
+        "ignorePackageNames": []
     }
 }

@@ -7,17 +7,29 @@
     "targets": {
         "build": {
             "executor": "@angular-devkit/build-angular:ng-packagr",
-            "assets": ["README.md"],
             "options": {
-                "tsConfig": "projects/ng-dompurify/tsconfig.lib.json",
-                "project": "projects/ng-dompurify/ng-package.json"
+                "tsConfig": "projects/{projectName}/tsconfig.lib.json",
+                "project": "projects/{projectName}/ng-package.json"
+            }
+        },
+        "prepublish": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "cp ./LICENSE ./README.md ./dist/{projectName}"
             }
         },
         "publish": {
             "executor": "nx:run-commands",
             "options": {
-                "command": "export TAG=\"$(node -p \"require('./package.json')?.version?.includes('alpha') ? 'alpha' : 'latest'\")\" && npm publish --tag $TAG ./dist/ng-dompurify --access=public --verbose --ignore-scripts || echo 'already published'"
-            }
+                "command": "npm publish ./dist/{projectName} --ignore-scripts"
+            },
+            "dependsOn": [
+                {
+                    "target": "prepublish",
+                    "params": "ignore",
+                    "dependencies": false
+                }
+            ]
         }
     }
 }
