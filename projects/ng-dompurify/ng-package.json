@@ -1,9 +1,5 @@
 {
     "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-    "assets": [
-        "CHANGELOG.md",
-        "README.md"
-    ],
     "dest": "../../dist/ng-dompurify",
     "lib": {
         "entryFile": "lib/index.ts"
