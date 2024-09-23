@@ -36,11 +36,7 @@
         "test": "jest",
         "lint": "eslint .",
         "typecheck": "tsc --noEmit --skipLibCheck",
-        "release": "standard-version",
-        "release:patch": "npm run release -- --release-as patch",
-        "release:minor": "npm run release -- --release-as minor",
-        "release:major": "npm run release -- --release-as major",
-        "publish": "npm run build && npm publish ./dist/ng-dompurify"
+        "release": "npx syncer && npx nx publish ng-dompurify"
     },
     "commitlint": {
         "extends": [
