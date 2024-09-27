@@ -112,7 +112,7 @@
         "@taiga-ui/tsconfig": "0.219.0",
         "@types/express": "5.0.0",
         "@types/jest": "29.5.13",
-        "@types/node": "22.7.3",
+        "@types/node": "22.7.4",
         "core-js": "3.38.1",
         "express": "4.21.0",
         "glob": "11.0.0",
