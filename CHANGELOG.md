@@ -1,7 +1,9 @@
 # Changelog
 
 All notable changes to this project will be documented in this file. See
-[standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+[`conventional commits`](https://www.conventionalcommits.org/) guidelines.
+
+### [4.1.9](https://github.com/taiga-family/ng-dompurify/compare/v4.1.8...v4.1.9) (2024-09-27)
 
 ### [4.1.8](https://github.com/taiga-family/ng-dompurify/compare/v4.1.7...v4.1.8) (2024-09-20)
 
