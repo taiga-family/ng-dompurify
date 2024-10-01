@@ -1,8 +1,8 @@
 import {APP_BASE_HREF, CommonModule} from '@angular/common';
+import type {ElementRef} from '@angular/core';
 import {
     ChangeDetectionStrategy,
     Component,
-    type ElementRef,
     SecurityContext,
     ViewChild,
 } from '@angular/core';
