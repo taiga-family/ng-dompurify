@@ -6,6 +6,7 @@ import type {
 
 /**
  * DOMPurify hook function {@link addHook}
+ * @deprecated: drop in v5.0
  */
 export type DompurifyHook = (
     currentNode: Element,
