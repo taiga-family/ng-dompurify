@@ -17,8 +17,7 @@
     "peerDependencies": {
         "@angular/core": ">=16.0.0",
         "@angular/platform-browser": ">=16.0.0",
-        "@types/dompurify": "^3.0.5",
-        "dompurify": "^3.1.7",
+        "dompurify": "^3.2.1",
         "tslib": "^2.7.0"
     },
     "authors": [

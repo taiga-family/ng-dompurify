@@ -15,7 +15,7 @@ describe('Purify', () => {
         const hooks: readonly NgDompurifyHook[] = [
             {
                 name: 'beforeSanitizeAttributes',
-                hook: (node: Element) => {
+                hook: (node: Node) => {
                     if (node instanceof HTMLElement) {
                         node.removeAttribute('id');
                     }
