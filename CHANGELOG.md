@@ -1,3 +1,10 @@
+### [4.1.10](https://github.com/taiga-family/ng-dompurify/compare/v4.1.9...v4.1.10) (2024-11-21)
+
+### 🐞 Bug Fixes
+
+- pin dompurify version (#596)
+  [(c06c3fb)](https://github.com/taiga-family/ng-dompurify/commit/c06c3fbdbffd88af082cec70848b841aaad4148f)
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See
