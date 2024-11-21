@@ -1,10 +1,14 @@
-import type {Config, HookEvent} from 'dompurify';
+import type {
+    Config,
+    UponSanitizeAttributeHookEvent,
+    UponSanitizeElementHookEvent,
+} from 'dompurify';
 
 /**
  * DOMPurify hook function {@link addHook}
  */
 export type DompurifyHook = (
     currentNode: Element,
-    data: HookEvent,
+    data: UponSanitizeAttributeHookEvent | UponSanitizeElementHookEvent | null,
     config: Config,
 ) => void;

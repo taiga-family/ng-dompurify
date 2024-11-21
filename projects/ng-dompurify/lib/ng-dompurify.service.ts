@@ -1,7 +1,7 @@
 import {DOCUMENT} from '@angular/common';
 import type {Sanitizer} from '@angular/core';
 import {inject, Injectable, SecurityContext} from '@angular/core';
-import type {DOMPurifyI} from 'dompurify';
+import type {DOMPurify} from 'dompurify';
 import dompurify from 'dompurify';
 
 import {DOMPURIFY_CONFIG} from './tokens/dompurify-config';
@@ -27,10 +27,12 @@ const createDOMPurify = dompurify;
 export class NgDompurifySanitizer implements Sanitizer {
     private readonly config = inject(DOMPURIFY_CONFIG);
     private readonly sanitizeStyle = inject(SANITIZE_STYLE);
-    private readonly domPurify: DOMPurifyI;
+    private readonly domPurify: DOMPurify;
 
     constructor() {
-        this.domPurify = createDOMPurify(inject(DOCUMENT).defaultView as Window);
+        this.domPurify = createDOMPurify(
+            inject(DOCUMENT).defaultView as dompurify.WindowLike,
+        );
 
         inject(DOMPURIFY_HOOKS).forEach(({name, hook}) => {
             this.domPurify.addHook(name, hook);
