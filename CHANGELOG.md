@@ -1,3 +1,5 @@
+### [4.1.11](https://github.com/taiga-family/ng-dompurify/compare/v4.1.10...v4.1.11) (2025-03-14)
+
 ### [4.1.10](https://github.com/taiga-family/ng-dompurify/compare/v4.1.9...v4.1.10) (2024-11-21)
 
 ### 🐞 Bug Fixes
