@@ -121,7 +121,6 @@
         "jest-preset-angular": "14.2.4",
         "lint-staged": "15.4.3",
         "ng-packagr": "16.2.3",
-        "release-it": "17.6.0",
         "rxjs": "7.8.2",
         "ts-jest": "29.2.5",
         "ts-node": "10.9.2",

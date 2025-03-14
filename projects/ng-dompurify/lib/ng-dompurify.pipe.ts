@@ -38,10 +38,13 @@ export class NgDompurifyPipe implements PipeTransform {
                 return this.domSanitizer.bypassSecurityTrustHtml(purifiedValue);
             case SecurityContext.RESOURCE_URL:
                 return this.domSanitizer.bypassSecurityTrustResourceUrl(purifiedValue);
+            case SecurityContext.SCRIPT:
+                return this.domSanitizer.bypassSecurityTrustScript(purifiedValue);
             case SecurityContext.STYLE:
                 return this.domSanitizer.bypassSecurityTrustStyle(purifiedValue);
             case SecurityContext.URL:
                 return this.domSanitizer.bypassSecurityTrustUrl(purifiedValue);
+            case SecurityContext.NONE:
             default:
                 return null;
         }
