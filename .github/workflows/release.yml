@@ -11,8 +11,6 @@ on:
           - minor
           - patch
           - major
-  schedule:
-    - cron: '0 7 * * 1'
 
 jobs:
   release:
@@ -25,7 +23,7 @@ jobs:
         with:
           ref: ${{ github.ref }}
           mode: ${{ github.event.inputs.mode }}
-          npmToken: ${{ secrets.NPM_TOKEN }}
+          npmToken: ${{ secrets.TAIGA_UI_SCOPE_NPM_TOKEN }}
           githubToken: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 
       - uses: taiga-family/ci/actions/run/read-package-json@v1.116.0
