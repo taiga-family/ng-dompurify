@@ -27,8 +27,9 @@
     "scripts": {
         "postinstall": "husky install",
         "start": "nx serve demo",
-        "start:ssr": "nx run demo:serve-ssr",
+        "start:ssr": "nx serve-ssr demo",
         "build:library": "nx build ng-dompurify",
+        "build:ssr": "nx run demo:build:production && nx run demo:server:production",
         "stylelint": "stylelint '**/*.{less,css}'",
         "prettier": "prettier !package-lock.json !CHANGELOG.md . --ignore-path .gitignore",
         "build:demo": "nx build demo -c production",

@@ -8,7 +8,7 @@
         "build": {
             "executor": "@angular-devkit/build-angular:browser",
             "options": {
-                "outputPath": "dist/demo",
+                "outputPath": "dist/demo/browser",
                 "index": "projects/demo/src/index.html",
                 "main": "projects/demo/src/main.ts",
                 "polyfills": "projects/demo/src/polyfills.ts",
@@ -66,6 +66,41 @@
             "configurations": {
                 "production": {
                     "browserTarget": "demo:build:production"
+                }
+            }
+        },
+        "server": {
+            "executor": "@angular-devkit/build-angular:server",
+            "options": {
+                "outputPath": "dist/demo/server",
+                "main": "projects/demo/server.ts",
+                "tsConfig": "projects/demo/tsconfig.server.json",
+                "inlineStyleLanguage": "less"
+            },
+            "configurations": {
+                "production": {
+                    "outputHashing": "media",
+                    "fileReplacements": [
+                        {
+                            "replace": "projects/demo/src/environments/environment.ts",
+                            "with": "projects/demo/src/environments/environment.prod.ts"
+                        }
+                    ],
+                    "sourceMap": false,
+                    "optimization": true
+                }
+            }
+        },
+        "serve-ssr": {
+            "executor": "@nguniversal/builders:ssr-dev-server",
+            "options": {
+                "browserTarget": "demo:build:production",
+                "serverTarget": "demo:server:production"
+            },
+            "configurations": {
+                "development": {
+                    "browserTarget": "demo:build:development",
+                    "serverTarget": "demo:server:development"
                 }
             }
         }
