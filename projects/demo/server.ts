@@ -3,8 +3,7 @@ import 'zone.js/node';
 import {existsSync} from 'node:fs';
 import {join} from 'node:path';
 
-import {APP_BASE_HREF} from '@angular/common';
-import {ngExpressEngine} from '@nguniversal/express-engine';
+import {CommonEngine} from '@angular/ssr';
 import express from 'express';
 
 import bootstrap from './src/main.server';
@@ -14,30 +13,36 @@ const mainModule = __non_webpack_require__.main;
 const moduleFilename = mainModule?.filename ?? '';
 
 if (moduleFilename === __filename || moduleFilename.includes('iisnode')) {
-    const port = process.env['PORT'] ?? 4000;
-
+    const port = Number(process.env['PORT'] ?? 4000);
     const server = express();
     const dist = join(process.cwd(), 'dist/demo/browser');
+    const indexHtml = existsSync(join(dist, 'index.original.html'))
+        ? 'index.original.html'
+        : 'index.html';
 
-    server.engine('html', ngExpressEngine({bootstrap}));
-    server.set('view engine', 'html');
-    server.set('views', dist);
+    // Serve only static asset requests (with a dot in the last segment) before SSR
     server.get('*.*', express.static(dist, {maxAge: '1y'}));
-    server.get('*', (req, res) => {
-        res.render(
-            existsSync(join(dist, 'index.original.html'))
-                ? 'index.original.html'
-                : 'index',
-            {
-                req,
-                providers: [{provide: APP_BASE_HREF, useValue: req.baseUrl}],
-            },
-        );
+
+    const engine = new CommonEngine();
+
+    // All other routes get server-rendered HTML
+    server.get('*', async (req, res, next) => {
+        try {
+            const html = await engine.render({
+                bootstrap,
+                documentFilePath: join(dist, indexHtml),
+                url: req.originalUrl,
+            });
+
+            res.status(200).send(html);
+        } catch (err) {
+            next(err);
+        }
     });
 
-    server.listen(port, () =>
-        console.info(`Node Express server listening on http://localhost:${port}`),
-    );
+    server.listen(port, () => {
+        console.info(`SSR server listening on http://localhost:${port}`);
+    });
 }
 
 export * from './src/main.server';
