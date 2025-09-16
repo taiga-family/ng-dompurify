@@ -1,15 +1,10 @@
-import {DOCUMENT} from '@angular/common';
 import type {Sanitizer} from '@angular/core';
 import {inject, Injectable, SecurityContext} from '@angular/core';
-import type {DOMPurifyI} from 'dompurify';
-import dompurify from 'dompurify';
 
+import {DOMPURIFY} from './tokens/dompurify';
 import {DOMPURIFY_CONFIG} from './tokens/dompurify-config';
-import {DOMPURIFY_HOOKS} from './tokens/dompurify-hooks';
 import {SANITIZE_STYLE} from './tokens/sanitize-style';
 import type {NgDompurifyConfig} from './types/ng-dompurify-config';
-
-const createDOMPurify = dompurify;
 
 /**
  * Implementation of Angular {@link Sanitizer} purifying via DOMPurify
@@ -27,15 +22,7 @@ const createDOMPurify = dompurify;
 export class NgDompurifySanitizer implements Sanitizer {
     private readonly config = inject(DOMPURIFY_CONFIG);
     private readonly sanitizeStyle = inject(SANITIZE_STYLE);
-    private readonly domPurify: DOMPurifyI;
-
-    constructor() {
-        this.domPurify = createDOMPurify(inject(DOCUMENT).defaultView as Window);
-
-        inject(DOMPURIFY_HOOKS).forEach(({name, hook}) => {
-            this.domPurify.addHook(name, hook);
-        });
-    }
+    private readonly domPurify = inject(DOMPURIFY);
 
     public sanitize(
         context: SecurityContext,

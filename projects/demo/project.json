@@ -61,11 +61,11 @@
         "serve": {
             "executor": "@angular-devkit/build-angular:dev-server",
             "options": {
-                "browserTarget": "demo:build:serve"
+                "buildTarget": "demo:build:serve"
             },
             "configurations": {
                 "production": {
-                    "browserTarget": "demo:build:production"
+                    "buildTarget": "demo:build:production"
                 }
             }
         },
@@ -92,7 +92,7 @@
             }
         },
         "serve-ssr": {
-            "executor": "@nguniversal/builders:ssr-dev-server",
+            "executor": "@angular-devkit/build-angular:ssr-dev-server",
             "options": {
                 "browserTarget": "demo:build:production",
                 "serverTarget": "demo:server:production"

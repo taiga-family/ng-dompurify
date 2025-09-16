@@ -1,6 +1,6 @@
 {
     "name": "@taiga-ui/dompurify",
-    "version": "4.1.11",
+    "version": "5.0.0",
     "description": "Inclusive Angular API for DOMPurify",
     "keywords": [
         "angular",
@@ -15,10 +15,9 @@
     "repository": "https://github.com/taiga-family/ng-dompurify",
     "license": "Apache-2.0",
     "peerDependencies": {
-        "@angular/core": ">=16.0.0",
-        "@angular/platform-browser": ">=16.0.0",
-        "@types/dompurify": "3.0.5",
-        "dompurify": "3.1.7",
+        "@angular/core": ">=19.0.0",
+        "@angular/platform-browser": ">=19.0.0",
+        "dompurify": "3.2.6",
         "tslib": "^2.8.1"
     },
     "authors": [
