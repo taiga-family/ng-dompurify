@@ -1,21 +1,6 @@
-import type {
-    DocumentFragmentHook,
-    ElementHook,
-    HookName,
-    NodeHook,
-    UponSanitizeAttributeHook,
-    UponSanitizeElementHook,
-} from 'dompurify';
+import type {HookName} from 'dompurify';
 
-/**
- * A DOMPurify supported hook see {@link addHook}
- */
 export interface NgDompurifyHook {
     readonly name: HookName;
-    readonly hook:
-        | DocumentFragmentHook
-        | ElementHook
-        | NodeHook
-        | UponSanitizeAttributeHook
-        | UponSanitizeElementHook;
+    readonly hook: (...args: any[]) => void;
 }

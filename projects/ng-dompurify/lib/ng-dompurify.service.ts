@@ -1,24 +1,12 @@
-import {DOCUMENT} from '@angular/common';
 import type {Sanitizer} from '@angular/core';
 import {inject, Injectable, SecurityContext} from '@angular/core';
-import type {
-    DocumentFragmentHook,
-    DOMPurify,
-    ElementHook,
-    HookName,
-    NodeHook,
-    UponSanitizeAttributeHook,
-    UponSanitizeElementHook,
-} from 'dompurify';
-import dompurify from 'dompurify';
+import type {DOMPurify} from 'dompurify';
 
+import {DOMPURIFY} from './tokens/dompurify';
 import {DOMPURIFY_CONFIG} from './tokens/dompurify-config';
-import {DOMPURIFY_HOOKS} from './tokens/dompurify-hooks';
 import {SANITIZE_STYLE} from './tokens/sanitize-style';
 import type {NgDompurifyConfig} from './types/ng-dompurify-config';
-import type {NgDompurifyHook} from './types/ng-dompurify-hook';
-
-const createDOMPurify = dompurify;
+// hooks are now applied via DOMPURIFY token factory; no direct hook types needed here
 
 /**
  * Implementation of Angular {@link Sanitizer} purifying via DOMPurify
@@ -36,17 +24,7 @@ const createDOMPurify = dompurify;
 export class NgDompurifySanitizer implements Sanitizer {
     private readonly config = inject(DOMPURIFY_CONFIG);
     private readonly sanitizeStyle = inject(SANITIZE_STYLE);
-    private readonly domPurify: DOMPurify;
-
-    constructor() {
-        this.domPurify = createDOMPurify(
-            inject(DOCUMENT).defaultView as dompurify.WindowLike,
-        );
-
-        inject(DOMPURIFY_HOOKS).forEach(({name, hook}) => {
-            this.addHook(name, hook);
-        });
-    }
+    private readonly domPurify: DOMPurify = inject(DOMPURIFY);
 
     public sanitize(
         context: SecurityContext,
@@ -60,33 +38,5 @@ export class NgDompurifySanitizer implements Sanitizer {
         return context === SecurityContext.STYLE
             ? this.sanitizeStyle(String(value))
             : this.domPurify.sanitize(String(value || ''), config);
-    }
-
-    private addHook(name: HookName, hook: NgDompurifyHook['hook']): void {
-        switch (name) {
-            case 'afterSanitizeAttributes':
-            case 'beforeSanitizeAttributes':
-                this.domPurify.addHook(name, hook as ElementHook);
-                break;
-
-            case 'afterSanitizeElements':
-            case 'beforeSanitizeElements':
-            case 'uponSanitizeShadowNode':
-                this.domPurify.addHook(name, hook as NodeHook);
-                break;
-
-            case 'afterSanitizeShadowDOM':
-            case 'beforeSanitizeShadowDOM':
-                this.domPurify.addHook(name, hook as DocumentFragmentHook);
-                break;
-
-            case 'uponSanitizeAttribute':
-                this.domPurify.addHook(name, hook as UponSanitizeAttributeHook);
-                break;
-
-            case 'uponSanitizeElement':
-                this.domPurify.addHook(name, hook as UponSanitizeElementHook);
-                break;
-        }
     }
 }
