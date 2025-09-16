@@ -6,7 +6,6 @@ import {DOMPURIFY} from './tokens/dompurify';
 import {DOMPURIFY_CONFIG} from './tokens/dompurify-config';
 import {SANITIZE_STYLE} from './tokens/sanitize-style';
 import type {NgDompurifyConfig} from './types/ng-dompurify-config';
-// hooks are now applied via DOMPURIFY token factory; no direct hook types needed here
 
 /**
  * Implementation of Angular {@link Sanitizer} purifying via DOMPurify
