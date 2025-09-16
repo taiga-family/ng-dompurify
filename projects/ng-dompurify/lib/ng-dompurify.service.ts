@@ -1,6 +1,5 @@
 import type {Sanitizer} from '@angular/core';
 import {inject, Injectable, SecurityContext} from '@angular/core';
-import type {DOMPurify} from 'dompurify';
 
 import {DOMPURIFY} from './tokens/dompurify';
 import {DOMPURIFY_CONFIG} from './tokens/dompurify-config';
@@ -23,7 +22,7 @@ import type {NgDompurifyConfig} from './types/ng-dompurify-config';
 export class NgDompurifySanitizer implements Sanitizer {
     private readonly config = inject(DOMPURIFY_CONFIG);
     private readonly sanitizeStyle = inject(SANITIZE_STYLE);
-    private readonly domPurify: DOMPurify = inject(DOMPURIFY);
+    private readonly domPurify = inject(DOMPURIFY);
 
     public sanitize(
         context: SecurityContext,

@@ -15,11 +15,10 @@ export const DOMPURIFY = new InjectionToken<DOMPurify>(
         providedIn: 'root',
         factory: () => {
             const instance = dompurify(inject(DOCUMENT).defaultView!);
-
-            const add = instance.addHook.bind(instance) as any;
+            const addHook = instance.addHook.bind(instance) as any;
 
             inject(DOMPURIFY_HOOKS).forEach(({name, hook}) => {
-                add(name, hook);
+                addHook(name, hook);
             });
 
             return instance;
