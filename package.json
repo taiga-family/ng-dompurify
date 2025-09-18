@@ -100,7 +100,7 @@
         "@nx/linter": "19.8.4",
         "@nx/node": "20.0.0",
         "@nx/workspace": "20.0.0",
-        "@release-it-plugins/workspaces": "4.2.0",
+        "@release-it-plugins/workspaces": "4.2.1",
         "@release-it/conventional-changelog": "8.0.2",
         "@taiga-ui/auto-changelog-config": "0.222.4",
         "@taiga-ui/browserslist-config": "0.222.4",
