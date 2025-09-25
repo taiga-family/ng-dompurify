@@ -149,6 +149,7 @@ describe('NgDompurifyPipe', () => {
         expect(testComponent.element.nativeElement.getAttribute('style')).toBeNull();
     });
 
+    // eslint-disable-next-line jest/prefer-ending-with-an-expect
     it('throws error by using SCRIPT security context', (done) => {
         try {
             testComponent.context = SecurityContext.SCRIPT;

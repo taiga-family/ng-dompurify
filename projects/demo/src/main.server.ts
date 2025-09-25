@@ -1,5 +1,6 @@
 import type {ApplicationRef} from '@angular/core';
 import {ErrorHandler, importProvidersFrom, mergeApplicationConfig} from '@angular/core';
+import type {BootstrapContext} from '@angular/platform-browser';
 import {bootstrapApplication} from '@angular/platform-browser';
 import {provideServerRendering, ServerModule} from '@angular/platform-server';
 
@@ -18,5 +19,5 @@ const serverConfig = mergeApplicationConfig(appConfig, {
     ],
 });
 
-export default async (): Promise<ApplicationRef> =>
-    bootstrapApplication(AppComponent, serverConfig);
+export default async (context: BootstrapContext): Promise<ApplicationRef> =>
+    bootstrapApplication(AppComponent, serverConfig, context);
