@@ -1,6 +1,6 @@
 {
     "name": "ng-dompurify",
-    "version": "6.0.0",
+    "version": "4.1.11",
     "private": true,
     "description": "Inclusive Angular API for DOMPurify",
     "keywords": [
@@ -37,7 +37,7 @@
         "test": "jest",
         "lint": "eslint .",
         "typecheck": "tsc --noEmit --skipLibCheck",
-        "release": "npx syncer && npx nx publish ng-dompurify"
+        "release": "npx nx publish ng-dompurify"
     },
     "commitlint": {
         "extends": [
@@ -112,7 +112,6 @@
         "@taiga-ui/prettier-config": "0.222.4",
         "@taiga-ui/release-it-config": "0.222.4",
         "@taiga-ui/stylelint-config": "0.222.4",
-        "@taiga-ui/syncer": "0.222.4",
         "@taiga-ui/tsconfig": "0.222.4",
         "@types/express": "5.0.3",
         "@types/jest": "29.5.14",
@@ -131,16 +130,5 @@
         "ts-jest": "29.4.4",
         "ts-node": "10.9.2",
         "typescript": "5.7.3"
-    },
-    "syncer": {
-        "includePaths": [
-            "./projects",
-            "./package-lock.json"
-        ],
-        "matchPackageNames": [
-            "@taiga-ui/dompurify",
-            "ng-dompurify"
-        ],
-        "ignorePackageNames": []
     }
 }
