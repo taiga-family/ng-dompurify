@@ -102,8 +102,6 @@
         "@nx/linter": "19.8.4",
         "@nx/node": "21.5.3",
         "@nx/workspace": "21.5.3",
-        "@release-it-plugins/workspaces": "4.2.1",
-        "@release-it/conventional-changelog": "8.0.2",
         "@schematics/angular": "19.2.17",
         "@taiga-ui/auto-changelog-config": "0.222.4",
         "@taiga-ui/browserslist-config": "0.222.4",
