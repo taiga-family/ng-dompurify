@@ -1,5 +1,3 @@
-## [6.0.0](https://github.com/taiga-family/ng-dompurify/compare/v4.1.11...v6.0.0) (2025-09-25)
-
 ### 🚀 Features
 
 - update dompufiry to 3.2.6

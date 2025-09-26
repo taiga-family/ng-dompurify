@@ -1,6 +1,6 @@
 {
     "name": "ng-dompurify",
-    "version": "6.0.0",
+    "version": "4.1.11",
     "private": true,
     "description": "Inclusive Angular API for DOMPurify",
     "keywords": [
@@ -37,7 +37,7 @@
         "test": "jest",
         "lint": "eslint .",
         "typecheck": "tsc --noEmit --skipLibCheck",
-        "release": "npx syncer && npx nx publish ng-dompurify"
+        "release": "npx nx run-many --target publish --all"
     },
     "commitlint": {
         "extends": [
