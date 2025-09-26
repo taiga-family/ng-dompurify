@@ -37,7 +37,7 @@
         "test": "jest",
         "lint": "eslint .",
         "typecheck": "tsc --noEmit --skipLibCheck",
-        "release": "npx syncer && npx nx publish ng-dompurify"
+        "release": "npx nx run-many --target publish --all"
     },
     "commitlint": {
         "extends": [
