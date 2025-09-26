@@ -2,7 +2,6 @@
 
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@taiga-ui/dompurify)](https://bundlephobia.com/result?p=@taiga-ui/dompurify)
 [![npm version](https://img.shields.io/npm/v/@taiga-ui/dompurify.svg?style=flat-square)](https://npmjs.com/package/@taiga-ui/dompurify)
-[![code style: @tinkoff/linters](https://img.shields.io/badge/code%20style-%40tinkoff%2Flinters-blue?style=flat-square)](https://github.com/taiga-family/linters)
 
 > This library implements `DOMPurify` as Angular `Sanitizer` or `Pipe`. It delegates sanitizing to `DOMPurify` and
 > supports the same configuration. See [DOMPurify](https://github.com/cure53/DOMPurify).
@@ -16,25 +15,9 @@ Read more about Sanitization in Angular and how ng-dompurify works in
 npm install @taiga-ui/dompurify
 ```
 
-If you do not have `dompurify` in your package, install also:
-
-```
-npm install dompurify
-npm install --save-dev @types/dompurify
-```
-
 ## How to use
 
 Either use pipe to sanitize your content when binding to `[innerHTML]` or use `NgDompurifySanitizer` service manually.
-
-```typescript
-import {NgDompurifyModule} from '@taiga-ui/dompurify';
-
-@NgModule({
-  imports: [NgDompurifyModule],
-})
-export class MyModule {}
-```
 
 As a pipe:
 
@@ -44,38 +27,37 @@ As a pipe:
 
 As a service:
 
-```typescript
+```ts
 import {SecurityContext} from '@angular/core';
 import {NgDompurifySanitizer} from '@taiga-ui/dompurify';
 
-@Component({})
-export class MyComponent {
-  constructor(private readonly dompurifySanitizer: NgDompurifySanitizer) {}
+@Component({
+  // ..
+})
+export class App {
+  private readonly sanitizer = new NgDompurifySanitizer();
 
-  purify(value: string): string {
-    return this.dompurifySanitizer.sanitize(SecurityContext.HTML, value);
+  protected purify(value: string): string {
+    return this.sanitizer.sanitize(SecurityContext.HTML, value);
   }
 }
 ```
 
 You can also substitute Angular `Sanitizer` with `DOMPurify` so it is automatically used all the time:
 
-```typescript
+```ts
 import {NgModule, Sanitizer} from '@angular/core';
 import {NgDompurifySanitizer} from '@taiga-ui/dompurify';
 // ...
 
-@NgModule({
-  // ...
+bootstrapApplication(App, {
   providers: [
     {
       provide: Sanitizer,
       useClass: NgDompurifySanitizer,
     },
   ],
-  // ...
-})
-export class AppModule {}
+});
 ```
 
 ## Configuring
@@ -83,13 +65,12 @@ export class AppModule {}
 Config for `NgDompurifySanitizer` or `NgDompurifyDomSanitizer` can be provided using token `DOMPURIFY_CONFIG`.
 `NgDompurifyPipe` supports passing DOMPurify config as an argument to override config from DI.
 
-```typescript
+```ts
 import {NgModule, Sanitizer} from '@angular/core';
 import {NgDompurifySanitizer, DOMPURIFY_CONFIG} from '@taiga-ui/dompurify';
 // ...
 
-@NgModule({
-  // ...
+bootstrapApplication(App, {
   providers: [
     {
       provide: Sanitizer,
@@ -100,9 +81,7 @@ import {NgDompurifySanitizer, DOMPURIFY_CONFIG} from '@taiga-ui/dompurify';
       useValue: {FORBID_ATTR: ['id']},
     },
   ],
-  // ...
-})
-export class AppModule {}
+});
 ```
 
 ## CSS sanitization
@@ -111,12 +90,11 @@ DOMPurify does not support sanitizing CSS. Angular starting version 10 dropped C
 no threat in supported browsers. You can still provide a handler to sanitize CSS rules values upon binding if you want
 to:
 
-```typescript
+```ts
 import {NgModule, Sanitizer} from '@angular/core';
 import {NgDompurifySanitizer, SANITIZE_STYLE} from '@taiga-ui/dompurify';
 
-@NgModule({
-  // ...
+bootstrapApplication(App, {
   providers: [
     {
       provide: Sanitizer,
@@ -127,21 +105,19 @@ import {NgDompurifySanitizer, SANITIZE_STYLE} from '@taiga-ui/dompurify';
       useValue: yourImplementation, // <---
     },
   ],
-  // ...
-})
-export class AppModule {}
+});
 ```
 
 ## Hooks
 
 DOMPurify supports various hooks. You can provide them using `DOMPURIFY_HOOKS` token:
 
-```typescript
+```ts
 import {NgModule, Sanitizer} from '@angular/core';
 import {NgDompurifySanitizer, DOMPURIFY_HOOKS, SANITIZE_STYLE} from '@taiga-ui/dompurify';
+// ..
 
-@NgModule({
-  // ...
+bootstrapApplication(App, {
   providers: [
     {
       provide: Sanitizer,
@@ -163,9 +139,7 @@ import {NgDompurifySanitizer, DOMPURIFY_HOOKS, SANITIZE_STYLE} from '@taiga-ui/d
       ],
     },
   ],
-  // ...
-})
-export class AppModule {}
+});
 ```
 
 ## Maintained
