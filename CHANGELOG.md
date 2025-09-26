@@ -1,3 +1,10 @@
+### [5.0.1](https://github.com/taiga-family/ng-dompurify/compare/v5.0.0...v5.0.1) (2025-09-26)
+
+### 🐞 Bug Fixes
+
+- allow compatible minor and patch dompurify updates (#637)
+  [(815b5e6)](https://github.com/taiga-family/ng-dompurify/commit/815b5e638eb88d93fe26801873b36ff8113df078)
+
 ## [5.0.0](https://github.com/taiga-family/ng-dompurify/compare/v4.1.11...v5.0.0) (2025-09-26)
 
 ### 🚀 Features
