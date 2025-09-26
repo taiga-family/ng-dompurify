@@ -1,6 +1,6 @@
 {
     "name": "@taiga-ui/dompurify",
-    "version": "4.1.11",
+    "version": "5.0.0",
     "description": "Inclusive Angular API for DOMPurify",
     "keywords": [
         "angular",
