@@ -157,4 +157,4 @@ Read more about this license [here](https://choosealicense.com/licenses/apache-2
 
 ## Demo
 
-You can see live demo here: https://stackblitz.com/github/taiga-family/ng-dompurify/tree/master/projects/demo
+You can see live demo here: https://stackblitz.com/github/taiga-family/ng-dompurify/tree/main/projects/demo
