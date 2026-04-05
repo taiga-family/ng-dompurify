@@ -1,7 +1,6 @@
 import {DOCUMENT} from '@angular/common';
 import {inject, InjectionToken} from '@angular/core';
-import type {DOMPurify} from 'dompurify';
-import dompurify from 'dompurify';
+import dompurify, {type DOMPurify} from 'dompurify';
 
 import {DOMPURIFY_HOOKS} from './dompurify-hooks';
 

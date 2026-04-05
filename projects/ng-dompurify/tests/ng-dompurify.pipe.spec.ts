@@ -1,13 +1,12 @@
 import {APP_BASE_HREF, CommonModule} from '@angular/common';
-import type {ElementRef} from '@angular/core';
 import {
     ChangeDetectionStrategy,
     Component,
+    type ElementRef,
     SecurityContext,
-    ViewChild,
+    viewChild,
 } from '@angular/core';
-import type {ComponentFixture} from '@angular/core/testing';
-import {TestBed} from '@angular/core/testing';
+import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {afterEach, beforeEach, describe, expect, it} from '@jest/globals';
 import {NgDompurifyPipe, SANITIZE_STYLE} from '@taiga-ui/dompurify';
 import {removeAllHooks} from 'dompurify';
@@ -21,31 +20,35 @@ describe('NgDompurifyPipe', () => {
         standalone: true,
         imports: [CommonModule, NgDompurifyPipe],
         template: `
-            <div
-                *ngIf="html"
-                #element
-                [innerHTML]="content | dompurify: context : config"
-            >
-                test
-            </div>
-            <div
-                *ngIf="style"
-                #element
-                [style.color]="content | dompurify: context : config"
-            ></div>
-            <img
-                *ngIf="url"
-                #element
-                alt=""
-                [src]="content | dompurify: context : config"
-            />
+            @if (html) {
+                <div
+                    #element
+                    [innerHTML]="content | dompurify: context : config"
+                >
+                    test
+                </div>
+            }
+
+            @if (style) {
+                <div
+                    #element
+                    [style.color]="content | dompurify: context : config"
+                ></div>
+            }
+
+            @if (url) {
+                <img
+                    #element
+                    alt=""
+                    [src]="content | dompurify: context : config"
+                />
+            }
         `,
         // eslint-disable-next-line @angular-eslint/prefer-on-push-component-change-detection
         changeDetection: ChangeDetectionStrategy.Default,
     })
     class TestComponent {
-        @ViewChild('element')
-        public readonly element!: ElementRef<HTMLElement>;
+        public readonly element = viewChild.required<ElementRef<HTMLElement>>('element');
 
         public content = '';
         public context?: SecurityContext = SecurityContext.HTML;
@@ -103,7 +106,7 @@ describe('NgDompurifyPipe', () => {
         testComponent.content = dirtyHtml;
         fixture.detectChanges();
 
-        expect(testComponent.element.nativeElement.innerHTML).toBe(cleanHtml);
+        expect(testComponent.element().nativeElement.innerHTML).toBe(cleanHtml);
     });
 
     it('sanitizes HTML by default', () => {
@@ -112,7 +115,7 @@ describe('NgDompurifyPipe', () => {
         testComponent.config = undefined;
         fixture.detectChanges();
 
-        expect(testComponent.element.nativeElement.innerHTML).toBe(cleanHtml);
+        expect(testComponent.element().nativeElement.innerHTML).toBe(cleanHtml);
     });
 
     it('sanitizes HTML with config', () => {
@@ -120,7 +123,7 @@ describe('NgDompurifyPipe', () => {
         testComponent.config = {FORBID_TAGS: ['br']};
         fixture.detectChanges();
 
-        expect(testComponent.element.nativeElement.innerHTML).toBe(
+        expect(testComponent.element().nativeElement.innerHTML).toBe(
             cleanHtml.replace('<br>', ''),
         );
     });
@@ -130,7 +133,7 @@ describe('NgDompurifyPipe', () => {
         testComponent.context = SecurityContext.URL;
         fixture.detectChanges();
 
-        expect(testComponent.element.nativeElement.getAttribute('src')).toBe(cleanUrl);
+        expect(testComponent.element().nativeElement.getAttribute('src')).toBe(cleanUrl);
     });
 
     it('sanitizes RESOURCE URL', () => {
@@ -138,7 +141,7 @@ describe('NgDompurifyPipe', () => {
         testComponent.context = SecurityContext.RESOURCE_URL;
         fixture.detectChanges();
 
-        expect(testComponent.element.nativeElement.getAttribute('src')).toBe(cleanUrl);
+        expect(testComponent.element().nativeElement.getAttribute('src')).toBe(cleanUrl);
     });
 
     it('sanitizes STYLE', () => {
@@ -146,10 +149,9 @@ describe('NgDompurifyPipe', () => {
         testComponent.context = SecurityContext.STYLE;
         fixture.detectChanges();
 
-        expect(testComponent.element.nativeElement.getAttribute('style')).toBeNull();
+        expect(testComponent.element().nativeElement.getAttribute('style')).toBeNull();
     });
 
-    // eslint-disable-next-line jest/prefer-ending-with-an-expect
     it('throws error by using SCRIPT security context', (done) => {
         try {
             testComponent.context = SecurityContext.SCRIPT;
@@ -167,6 +169,6 @@ describe('NgDompurifyPipe', () => {
         testComponent.context = SecurityContext.NONE;
         fixture.detectChanges();
 
-        expect(testComponent.element.nativeElement.innerHTML).toBe('');
+        expect(testComponent.element().nativeElement.innerHTML).toBe('');
     });
 });

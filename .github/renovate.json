@@ -3,8 +3,8 @@
     "extends": ["github>taiga-family/renovate-config"],
     "packageRules": [
         {
-            "matchPackageNames": ["dompurify", "@types/dompurify"],
-            "enabled": false
+            "enabled": false,
+            "matchPackageNames": ["dompurify", "@types/dompurify"]
         }
     ]
 }

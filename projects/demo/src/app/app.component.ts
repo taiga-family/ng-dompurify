@@ -1,7 +1,6 @@
 import {ChangeDetectionStrategy, Component, inject, SecurityContext} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import type {SafeValue} from '@angular/platform-browser';
-import {DomSanitizer} from '@angular/platform-browser';
+import {DomSanitizer, type SafeValue} from '@angular/platform-browser';
 import {NgDompurifyPipe} from '@taiga-ui/dompurify';
 
 const dirtyHtml =

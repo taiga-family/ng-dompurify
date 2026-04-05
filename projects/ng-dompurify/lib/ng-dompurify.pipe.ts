@@ -1,11 +1,8 @@
-/* eslint-disable sonarjs/no-angular-bypass-sanitization */
-import type {PipeTransform} from '@angular/core';
-import {inject, Pipe, SecurityContext} from '@angular/core';
-import type {SafeValue} from '@angular/platform-browser';
-import {DomSanitizer} from '@angular/platform-browser';
+import {inject, Pipe, type PipeTransform, SecurityContext} from '@angular/core';
+import {DomSanitizer, type SafeValue} from '@angular/platform-browser';
 
 import {NgDompurifySanitizer} from './ng-dompurify.service';
-import type {NgDompurifyConfig} from './types/ng-dompurify-config';
+import {type NgDompurifyConfig} from './types/ng-dompurify-config';
 
 /**
  * Pipe that transforms dirty content to clean via {@link NgDompurifySanitizer}

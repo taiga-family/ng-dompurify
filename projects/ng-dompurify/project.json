@@ -1,33 +1,30 @@
 {
-    "name": "ng-dompurify",
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "sourceRoot": "libs/ng-event-plugins/src",
+    "name": "ng-dompurify",
     "projectType": "library",
+    "sourceRoot": "libs/ng-event-plugins/src",
     "tags": [],
     "targets": {
         "build": {
             "executor": "@angular-devkit/build-angular:ng-packagr",
             "options": {
-                "tsConfig": "projects/{projectName}/tsconfig.lib.json",
-                "project": "projects/{projectName}/ng-package.json"
+                "project": "projects/{projectName}/ng-package.json",
+                "tsConfig": "projects/{projectName}/tsconfig.lib.json"
             }
         },
         "publish": {
-            "executor": "nx:run-commands",
-            "options": {
-                "parallel": false,
-                "commands": [
-                    "cp ./LICENSE ./README.md ./dist/{projectName}",
-                    "npm publish ./dist/{projectName} --ignore-scripts"
-                ]
-            },
             "dependsOn": [
                 {
-                    "target": "build",
+                    "dependencies": false,
                     "params": "ignore",
-                    "dependencies": false
+                    "target": "build"
                 }
-            ]
+            ],
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": ["cp ./LICENSE ./README.md ./dist/{projectName}", "npm publish ./dist/{projectName} --ignore-scripts"],
+                "parallel": false
+            }
         }
     }
 }

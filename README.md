@@ -11,7 +11,7 @@ Read more about Sanitization in Angular and how ng-dompurify works in
 
 ## Install
 
-```
+```bash
 npm install @taiga-ui/dompurify
 ```
 
