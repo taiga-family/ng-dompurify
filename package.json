@@ -10,34 +10,39 @@
         "DomSanitizer"
     ],
     "homepage": "https://github.com/taiga-family/ng-dompurify#README",
-    "bugs": "https://github.com/taiga-family/ng-dompurify/issues",
-    "repository": "https://github.com/taiga-family/ng-dompurify",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/taiga-family/ng-dompurify"
+    },
     "license": "Apache-2.0",
     "author": {
-        "name": "Roman Sedov",
         "email": "79601794011@ya.ru",
+        "name": "Roman Sedov",
         "url": "http://marsibarsi.me/"
     },
     "contributors": [
-        "Alex Inkin <alexander@inkin.ru>"
+        {
+            "email": "alexander@inkin.ru",
+            "name": "Alex Inkin"
+        }
     ],
     "workspaces": [
         "projects/*"
     ],
     "scripts": {
-        "postinstall": "husky install",
-        "start": "nx serve demo",
-        "start:ssr": "nx serve-ssr demo",
+        "build:demo": "nx build demo -c production",
         "build:library": "nx build ng-dompurify",
         "build:ssr": "nx run demo:build:production && nx run demo:server:production",
-        "stylelint": "stylelint '**/*.{less,css}'",
-        "prettier": "prettier !package-lock.json !CHANGELOG.md . --ignore-path .gitignore",
-        "build:demo": "nx build demo -c production",
-        "postbuild": "node scripts/postbuild.js",
-        "test": "jest",
+        "postinstall": "husky install",
         "lint": "eslint .",
-        "typecheck": "tsc --noEmit --skipLibCheck",
-        "release": "npx syncer && npx nx run-many --target publish --all"
+        "postbuild": "node scripts/postbuild.js",
+        "prettier": "prettier !package-lock.json !CHANGELOG.md . --ignore-path .gitignore",
+        "release": "npx syncer && npx nx run-many --target publish --all",
+        "start": "nx serve demo",
+        "start:ssr": "nx serve-ssr demo",
+        "stylelint": "stylelint '**/*.{less,css}'",
+        "test": "jest",
+        "typecheck": "tsc --noEmit --skipLibCheck"
     },
     "commitlint": {
         "extends": [
@@ -60,12 +65,6 @@
         "extends @taiga-ui/browserslist-config"
     ],
     "prettier": "@taiga-ui/prettier-config",
-    "eslintConfig": {
-        "extends": [
-            "plugin:@taiga-ui/experience/all"
-        ],
-        "root": true
-    },
     "stylelint": {
         "extends": [
             "@taiga-ui/stylelint-config"
@@ -103,15 +102,7 @@
         "@nx/node": "21.6.5",
         "@nx/workspace": "21.6.5",
         "@schematics/angular": "19.2.19",
-        "@taiga-ui/auto-changelog-config": "0.348.0",
-        "@taiga-ui/browserslist-config": "0.348.0",
-        "@taiga-ui/commitlint-config": "0.348.0",
-        "@taiga-ui/eslint-plugin-experience": "0.249.0",
-        "@taiga-ui/prettier-config": "0.348.0",
-        "@taiga-ui/release-it-config": "0.348.0",
-        "@taiga-ui/stylelint-config": "0.348.0",
-        "@taiga-ui/syncer": "0.348.0",
-        "@taiga-ui/tsconfig": "0.348.0",
+        "@taiga-ui/configs": "0.455.0",
         "@types/express": "5.0.6",
         "@types/jest": "29.5.14",
         "@types/node": "22.19.3",
@@ -122,7 +113,6 @@
         "husky": "9.1.7",
         "jest": "29.7.0",
         "jest-preset-angular": "14.6.2",
-        "lint-staged": "15.5.2",
         "ng-packagr": "19.2.2",
         "nx": "21.6.5",
         "rxjs": "7.8.2",
@@ -138,7 +128,6 @@
         "matchPackageNames": [
             "@taiga-ui/dompurify",
             "ng-dompurify"
-        ],
-        "ignorePackageNames": []
+        ]
     }
 }

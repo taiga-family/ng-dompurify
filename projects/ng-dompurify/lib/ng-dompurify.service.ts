@@ -1,10 +1,9 @@
-import type {Sanitizer} from '@angular/core';
-import {inject, Injectable, SecurityContext} from '@angular/core';
+import {inject, Injectable, type Sanitizer, SecurityContext} from '@angular/core';
 
 import {DOMPURIFY} from './tokens/dompurify';
 import {DOMPURIFY_CONFIG} from './tokens/dompurify-config';
 import {SANITIZE_STYLE} from './tokens/sanitize-style';
-import type {NgDompurifyConfig} from './types/ng-dompurify-config';
+import {type NgDompurifyConfig} from './types/ng-dompurify-config';
 
 /**
  * Implementation of Angular {@link Sanitizer} purifying via DOMPurify
@@ -16,9 +15,7 @@ import type {NgDompurifyConfig} from './types/ng-dompurify-config';
  * Ambient type cannot be used without @dynamic https://github.com/angular/angular/issues/23395
  * @dynamic
  */
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class NgDompurifySanitizer implements Sanitizer {
     private readonly config = inject(DOMPURIFY_CONFIG);
     private readonly sanitizeStyle = inject(SANITIZE_STYLE);

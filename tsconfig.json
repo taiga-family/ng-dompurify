@@ -3,10 +3,10 @@
     "compilerOptions": {
         "baseUrl": "./",
         "outDir": "./dist",
-        "typeRoots": ["node_modules/@types"],
-        "types": ["jest", "node"],
         "paths": {
             "@taiga-ui/dompurify": ["./projects/ng-dompurify/lib"]
-        }
+        },
+        "typeRoots": ["node_modules/@types"],
+        "types": ["jest", "node"]
     }
 }

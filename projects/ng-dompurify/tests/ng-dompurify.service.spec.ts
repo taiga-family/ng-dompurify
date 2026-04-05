@@ -2,8 +2,12 @@ import {APP_BASE_HREF} from '@angular/common';
 import {SecurityContext} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
 import {afterEach, beforeEach, describe, expect, it} from '@jest/globals';
-import type {NgDompurifyHook} from '@taiga-ui/dompurify';
-import {DOMPURIFY_HOOKS, NgDompurifySanitizer, SANITIZE_STYLE} from '@taiga-ui/dompurify';
+import {
+    DOMPURIFY_HOOKS,
+    type NgDompurifyHook,
+    NgDompurifySanitizer,
+    SANITIZE_STYLE,
+} from '@taiga-ui/dompurify';
 import {removeAllHooks} from 'dompurify';
 
 import {cleanHtml, dirtyHtml} from './test-samples/html';

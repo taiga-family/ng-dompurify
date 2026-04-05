@@ -1,7 +1,10 @@
-import type {ApplicationRef} from '@angular/core';
-import {ErrorHandler, importProvidersFrom, mergeApplicationConfig} from '@angular/core';
-import type {BootstrapContext} from '@angular/platform-browser';
-import {bootstrapApplication} from '@angular/platform-browser';
+import {
+    type ApplicationRef,
+    ErrorHandler,
+    importProvidersFrom,
+    mergeApplicationConfig,
+} from '@angular/core';
+import {bootstrapApplication, type BootstrapContext} from '@angular/platform-browser';
 import {provideServerRendering, ServerModule} from '@angular/platform-server';
 
 import {AppComponent} from './app/app.component';

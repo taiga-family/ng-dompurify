@@ -1,107 +1,107 @@
 {
-    "name": "demo",
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "name": "demo",
     "projectType": "application",
     "sourceRoot": "projects/demo/src",
     "tags": [],
     "targets": {
         "build": {
-            "executor": "@angular-devkit/build-angular:browser",
-            "options": {
-                "outputPath": "dist/demo/browser",
-                "index": "projects/demo/src/index.html",
-                "main": "projects/demo/src/main.ts",
-                "polyfills": "projects/demo/src/polyfills.ts",
-                "tsConfig": "projects/demo/tsconfig.app.json",
-                "assets": [],
-                "styles": ["projects/demo/src/styles.css"],
-                "scripts": [],
-                "vendorChunk": true,
-                "extractLicenses": false,
-                "buildOptimizer": false,
-                "sourceMap": true,
-                "optimization": false,
-                "aot": true,
-                "namedChunks": true
-            },
             "configurations": {
                 "production": {
                     "aot": true,
+                    "budgets": [
+                        {
+                            "maximumError": "5mb",
+                            "maximumWarning": "2mb",
+                            "type": "initial"
+                        },
+                        {
+                            "maximumWarning": "6kb",
+                            "type": "anyComponentStyle"
+                        }
+                    ],
+                    "buildOptimizer": true,
+                    "extractLicenses": true,
+                    "namedChunks": false,
                     "optimization": true,
                     "outputHashing": "all",
                     "sourceMap": false,
-                    "namedChunks": false,
-                    "extractLicenses": true,
-                    "vendorChunk": false,
-                    "buildOptimizer": true,
-                    "budgets": [
-                        {
-                            "type": "initial",
-                            "maximumWarning": "2mb",
-                            "maximumError": "5mb"
-                        },
-                        {
-                            "type": "anyComponentStyle",
-                            "maximumWarning": "6kb"
-                        }
-                    ]
+                    "vendorChunk": false
                 },
                 "serve": {
                     "budgets": [
                         {
-                            "type": "anyComponentStyle",
-                            "maximumWarning": "6kb"
+                            "maximumWarning": "6kb",
+                            "type": "anyComponentStyle"
                         }
                     ],
                     "tsConfig": "projects/demo/tsconfig.app.json"
                 }
             },
-            "defaultConfiguration": ""
+            "defaultConfiguration": "",
+            "executor": "@angular-devkit/build-angular:browser",
+            "options": {
+                "aot": true,
+                "assets": [],
+                "buildOptimizer": false,
+                "extractLicenses": false,
+                "index": "projects/demo/src/index.html",
+                "main": "projects/demo/src/main.ts",
+                "namedChunks": true,
+                "optimization": false,
+                "outputPath": "dist/demo/browser",
+                "polyfills": "projects/demo/src/polyfills.ts",
+                "scripts": [],
+                "sourceMap": true,
+                "styles": ["projects/demo/src/styles.css"],
+                "tsConfig": "projects/demo/tsconfig.app.json",
+                "vendorChunk": true
+            }
         },
         "serve": {
-            "executor": "@angular-devkit/build-angular:dev-server",
-            "options": {
-                "buildTarget": "demo:build:serve"
-            },
             "configurations": {
                 "production": {
                     "buildTarget": "demo:build:production"
                 }
+            },
+            "executor": "@angular-devkit/build-angular:dev-server",
+            "options": {
+                "buildTarget": "demo:build:serve"
+            }
+        },
+        "serve-ssr": {
+            "configurations": {
+                "development": {
+                    "browserTarget": "demo:build:development",
+                    "serverTarget": "demo:server:development"
+                }
+            },
+            "executor": "@angular-devkit/build-angular:ssr-dev-server",
+            "options": {
+                "browserTarget": "demo:build:production",
+                "serverTarget": "demo:server:production"
             }
         },
         "server": {
-            "executor": "@angular-devkit/build-angular:server",
-            "options": {
-                "outputPath": "dist/demo/server",
-                "main": "projects/demo/server.ts",
-                "tsConfig": "projects/demo/tsconfig.server.json",
-                "inlineStyleLanguage": "less"
-            },
             "configurations": {
                 "production": {
-                    "outputHashing": "media",
                     "fileReplacements": [
                         {
                             "replace": "projects/demo/src/environments/environment.ts",
                             "with": "projects/demo/src/environments/environment.prod.ts"
                         }
                     ],
-                    "sourceMap": false,
-                    "optimization": true
+                    "optimization": true,
+                    "outputHashing": "media",
+                    "sourceMap": false
                 }
-            }
-        },
-        "serve-ssr": {
-            "executor": "@angular-devkit/build-angular:ssr-dev-server",
-            "options": {
-                "browserTarget": "demo:build:production",
-                "serverTarget": "demo:server:production"
             },
-            "configurations": {
-                "development": {
-                    "browserTarget": "demo:build:development",
-                    "serverTarget": "demo:server:development"
-                }
+            "executor": "@angular-devkit/build-angular:server",
+            "options": {
+                "inlineStyleLanguage": "less",
+                "main": "projects/demo/server.ts",
+                "outputPath": "dist/demo/server",
+                "tsConfig": "projects/demo/tsconfig.server.json"
             }
         }
     }

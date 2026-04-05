@@ -1,3 +1,8 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See
+[`conventional commits`](https://www.conventionalcommits.org/) guidelines.
+
 ### [5.0.1](https://github.com/taiga-family/ng-dompurify/compare/v5.0.0...v5.0.1) (2025-09-26)
 
 ### 🐞 Bug Fixes
@@ -26,11 +31,6 @@
 - pin dompurify version (#596)
   [(c06c3fb)](https://github.com/taiga-family/ng-dompurify/commit/c06c3fbdbffd88af082cec70848b841aaad4148f)
 
-# Changelog
-
-All notable changes to this project will be documented in this file. See
-[`conventional commits`](https://www.conventionalcommits.org/) guidelines.
-
 ### [4.1.9](https://github.com/taiga-family/ng-dompurify/compare/v4.1.8...v4.1.9) (2024-09-27)
 
 ### [4.1.8](https://github.com/taiga-family/ng-dompurify/compare/v4.1.7...v4.1.8) (2024-09-20)
@@ -56,7 +56,7 @@ All notable changes to this project will be documented in this file. See
 
 ### [4.1.0](https://github.com/taiga-family/ng-dompurify/compare/v4.0.1...v4.1.0) (2024-06-12)
 
-### [4.0.1]() (2024-06-12)
+### [4.0.1](https://github.com/taiga-family/ng-dompurify/compare/v4.0.0...v4.0.1) (2024-06-12)
 
 ### 🚀 Features
 
