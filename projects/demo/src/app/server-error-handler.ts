@@ -1,7 +1,7 @@
 import {Location} from '@angular/common';
 import {type ErrorHandler, inject, Injectable} from '@angular/core';
 
-const KNOWN_ISSUES: string[] = [
+const KNOWN_ISSUES = [
     'requestAnimationFrame is not defined', // hljs
 ];
 
