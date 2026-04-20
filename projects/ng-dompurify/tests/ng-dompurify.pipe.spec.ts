@@ -49,7 +49,6 @@ describe('NgDompurifyPipe', () => {
     })
     class TestComponent {
         public readonly element = viewChild.required<ElementRef<HTMLElement>>('element');
-
         public content = '';
         public context?: SecurityContext = SecurityContext.HTML;
         public config? = {};
