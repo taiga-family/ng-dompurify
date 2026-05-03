@@ -26,6 +26,7 @@ describe('Purify', () => {
                 },
             },
         ];
+
         let service: NgDompurifySanitizer;
 
         beforeEach(() => {
