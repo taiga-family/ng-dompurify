@@ -102,7 +102,7 @@
         "@nx/node": "21.6.11",
         "@nx/workspace": "21.6.11",
         "@schematics/angular": "19.2.24",
-        "@taiga-ui/configs": "0.499.0",
+        "@taiga-ui/configs": "0.501.0",
         "@types/express": "5.0.6",
         "@types/jest": "29.5.14",
         "browser-sync": "3.0.4",
