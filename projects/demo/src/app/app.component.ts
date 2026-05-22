@@ -19,6 +19,7 @@ const svg = `<svg width="56" height="56">
 })
 export class AppComponent {
     private readonly sanitizer = inject(DomSanitizer);
+
     protected value = dirtyHtml;
     protected domValue = svg;
 
