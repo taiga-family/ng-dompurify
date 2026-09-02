@@ -7,8 +7,7 @@
         "ng",
         "dompurify",
         "sanitizer",
-        "DomSanitizer",
-        "tinkoff"
+        "DomSanitizer"
     ],
     "homepage": "https://github.com/taiga-family/ng-dompurify#README",
     "bugs": "https://github.com/taiga-family/ng-dompurify/issues",
