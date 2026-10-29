@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file. See
 [`conventional commits`](https://www.conventionalcommits.org/) guidelines.
 
+## [5.0.2](https://github.com/taiga-family/ng-dompurify/compare/v5.0.1...v5.0.2) (2026-10-29)
+
+This release contains internal technical improvements only. No changes to functionality, UI, or APIs.
+
 ### [5.0.1](https://github.com/taiga-family/ng-dompurify/compare/v5.0.0...v5.0.1) (2025-09-26)
 
 ### 🐞 Bug Fixes
