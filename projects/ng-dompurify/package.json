@@ -24,7 +24,7 @@
         "@angular/core": ">=19.0.0",
         "@angular/platform-browser": ">=19.0.0",
         "dompurify": "^3.2.7",
-        "tslib": "^2.8.1"
+        "tslib": "^2.9.1"
     },
     "authors": [
         "Roman Sedov <79601794011@ya.ru>",
